@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Jupiter</title>
+  <meta name="description" content="Insights, product updates and stories from the Jupiter team." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ===== Navbar ===== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand">
+        <svg class="brand-logo" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <circle cx="16" cy="16" r="7" fill="#d5f34a"/>
+          <ellipse cx="16" cy="16" rx="13" ry="4.5" stroke="#d5f34a" stroke-width="2" transform="rotate(-18 16 16)"/>
+        </svg>
+        <span>Jupiter</span>
+      </a>
+      <nav class="nav-pill" id="navPill" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <a href="contact.html" class="nav-cta">
+        <span class="btn-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+        </span>
+        Get Started
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== Page hero ===== -->
+  <section class="page-hero">
+    <div class="container">
+      <h1><span class="muted">Insights from</span><br />the Jupiter team.</h1>
+      <p>Product updates, engineering deep-dives and lessons from building at scale.</p>
+    </div>
+  </section>
+
+  <!-- ===== Blog ===== -->
+  <section class="section" style="padding-top:40px;">
+    <div class="container">
+
+      <!-- Featured post -->
+      <article class="featured-post reveal">
+        <div class="featured-thumb g1"><span>🚀</span></div>
+        <div class="featured-body">
+          <span class="tag">Product</span>
+          <h2>Introducing Orbit Engine v4: automation that thinks ahead</h2>
+          <p>Our biggest release yet brings AI-suggested workflows, predictive alerts and a rebuilt automation engine that's 3x faster. Here's what's new and why it matters for your team.</p>
+          <div class="post-meta">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>8 min read</span>
+            <span>Sep 4, 2026</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Filters -->
+      <div class="filter-bar reveal">
+        <button class="filter-btn active" data-filter="all">All posts</button>
+        <button class="filter-btn" data-filter="product">Product</button>
+        <button class="filter-btn" data-filter="engineering">Engineering</button>
+        <button class="filter-btn" data-filter="company">Company</button>
+        <button class="filter-btn" data-filter="growth">Growth</button>
+      </div>
+
+      <!-- Post grid -->
+      <div class="post-grid">
+        <article class="post-card reveal" data-category="engineering">
+          <div class="post-thumb g2"><span>⚙️</span></div>
+          <div class="post-body">
+            <span class="tag">Engineering</span>
+            <h3><a href="#">How we cut dashboard load times by 70%</a></h3>
+            <p>A deep dive into query caching, streaming renders and the surprising cost of JSON.</p>
+            <div class="post-meta">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>6 min</span>
+              <span>Aug 28, 2026</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="post-card reveal" data-category="growth" style="transition-delay:.06s">
+          <div class="post-thumb g3"><span>📈</span></div>
+          <div class="post-body">
+            <span class="tag">Growth</span>
+            <h3><a href="#">The SaaS metrics that actually predict churn</a></h3>
+            <p>Forget vanity metrics. Here's the data model we use internally to spot churn early.</p>
+            <div class="post-meta">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>5 min</span>
+              <span>Aug 21, 2026</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="post-card reveal" data-category="product" style="transition-delay:.12s">
+          <div class="post-thumb g4"><span>🧠</span></div>
+          <div class="post-body">
+            <span class="tag">Product</span>
+            <h3><a href="#">Designing automations people actually trust</a></h3>
+            <p>Why transparency, undo and dry-runs matter more than raw power in automation tools.</p>
+            <div class="post-meta">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>7 min</span>
+              <span>Aug 14, 2026</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="post-card reveal" data-category="company">
+          <div class="post-thumb g5"><span>🌍</span></div>
+          <div class="post-body">
+            <span class="tag">Company</span>
+            <h3><a href="#">Jupiter is now carbon negative — here's how</a></h3>
+            <p>From renewable data centers to removal credits, our path to net-negative infrastructure.</p>
+            <div class="post-meta">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>4 min</span>
+              <span>Aug 12, 2026</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="post-card reveal" data-category="engineering" style="transition-delay:.06s">
+          <div class="post-thumb g6"><span>🔐</span></div>
+          <div class="post-body">
+            <span class="tag">Engineering</span>
+            <h3><a href="#">Zero-downtime migrations at 10k+ customer scale</a></h3>
+            <p>The tooling and guardrails we built to ship schema changes while you sleep.</p>
+            <div class="post-meta">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>9 min</span>
+              <span>Aug 5, 2026</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="post-card reveal" data-category="growth" style="transition-delay:.12s">
+          <div class="post-thumb g6"><span>🚀</span></div>
+          <div class="post-body">
+            <span class="tag">Growth</span>
+            <h3><a href="#">From 0 to 10,000 customers: our playbook</a></h3>
+            <p>The channels, experiments and mistakes that shaped Jupiter's growth journey.</p>
+            <div class="post-meta">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>9 min</span>
+              <span>Jul 30, 2026</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="cta-banner reveal">
+        <h2>Never miss a launch</h2>
+        <p>Get product updates and insights straight to your inbox. No spam, ever.</p>
+        <div class="hero-actions">
+          <a href="contact.html" class="btn btn-light">
+            <span class="btn-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
+            </span>
+            Subscribe
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand" style="background:var(--dark);color:#fff;">
+            <svg class="brand-logo" viewBox="0 0 32 32" fill="none">
+              <circle cx="16" cy="16" r="7" fill="#d5f34a"/>
+              <ellipse cx="16" cy="16" rx="13" ry="4.5" stroke="#d5f34a" stroke-width="2" transform="rotate(-18 16 16)"/>
+            </svg>
+            <span>Jupiter</span>
+          </a>
+          <p>The all-in-one SaaS platform to launch, automate and scale your business.</p>
+          <div class="social-links">
+            <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
+            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V9h4v1.5A6 6 0 0 1 16 8z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="#" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="blog.html">Insights</a></li>
+            <li><a href="services.html">Pricing</a></li>
+            <li><a href="contact.html">Support</a></li>
+            <li><a href="about.html">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Stay in orbit</h4>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" placeholder="Your email" required aria-label="Email address" />
+            <button type="submit" class="btn-ico" aria-label="Subscribe" style="width:42px;height:42px;border-radius:50%;border:0;display:grid;place-items:center;">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+          </form>
+          <p class="newsletter-note" id="newsSuccess">Thanks — you're subscribed! 🚀</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span class="year">2026</span> Jupiter Inc. All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Security</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

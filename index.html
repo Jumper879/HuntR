@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scale your ideas. Build with AI.</title>
+  <meta name="description" content="Jupiter is the all-in-one SaaS platform to launch, automate and scale your business." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css?v=2.5" />
+
+  <style id="hero-critical-styles">
+    /* Reset and font setup for the hero viewport */
+    .site-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 28px 48px;
+      box-sizing: border-box;
+    }
+    .header-wrap {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .brand-stadium {
+      display: inline-flex;
+      align-items: center;
+      line-height: 0;
+      text-decoration: none;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .brand-stadium:hover {
+      transform: scale(1.04);
+      opacity: 0.85;
+    }
+    .nav-capsule {
+      display: flex;
+      align-items: center;
+      background: #ffffff;
+      border-radius: 9999px;
+      padding: 5px 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+    }
+    .nav-capsule a {
+      color: #4b5262;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 7px 18px;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: color 0.15s ease, background 0.15s ease;
+      white-space: nowrap;
+      display: inline-block;
+    }
+    .nav-capsule a:hover {
+      color: #111111;
+      background: rgba(0, 0, 0, 0.04);
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+    }
+    .hire-capsule {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #ffffff;
+      color: #111111;
+      border-radius: 9999px;
+      padding: 6px 18px 6px 7px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .hire-capsule:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+    .hire-icon {
+      width: 28px;
+      height: 28px;
+      background: #111111;
+      color: #ffffff;
+      border-radius: 7px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+    .hire-text {
+      font-size: 14px;
+      font-weight: 600;
+      color: #111111;
+    }
+
+    /* Hero Viewport */
+    .hero-viewport {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      min-height: 100dvh;
+      background-color: #f1f1ef;
+      background-image: url('img/hero-landscape.jpg');
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 130px 48px 36px;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    /* Ambient glow on TV screen */
+    .tv-ambient-pulse {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -46%);
+      width: 320px;
+      height: 240px;
+      background: radial-gradient(circle, rgba(255, 185, 80, 0.45) 0%, rgba(255, 140, 50, 0.2) 45%, transparent 75%);
+      filter: blur(35px);
+      mix-blend-mode: screen;
+      pointer-events: none;
+      animation: tvGlowPulse 5s ease-in-out infinite;
+    }
+    @keyframes tvGlowPulse {
+      0%, 100% { opacity: 0.85; transform: translate(-50%, -46%) scale(1); }
+      50% { opacity: 0.55; transform: translate(-50%, -46%) scale(0.95); }
+    }
+
+    .hero-stage-content {
+      position: relative;
+      z-index: 10;
+      max-width: 1360px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-grow: 1;
+    }
+
+    .hero-center-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      padding-top: 20px;
+    }
+
+    .hero-left-box {
+      max-width: 580px;
+    }
+
+    .hero-main-heading {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      letter-spacing: -0.045em;
+      line-height: 1.04;
+      margin: 0 0 24px;
+    }
+    .muted-part {
+      display: block;
+      font-size: clamp(3.2rem, 5.8vw, 5.4rem);
+      font-weight: 600;
+      color: #9297a2;
+    }
+    .bold-part {
+      display: block;
+      font-size: clamp(3.2rem, 5.8vw, 5.4rem);
+      font-weight: 700;
+      color: #111111;
+      margin-top: 4px;
+    }
+
+    .hero-lead-text {
+      color: #4b5262;
+      font-size: clamp(1.02rem, 1.3vw, 1.15rem);
+      line-height: 1.55;
+      font-weight: 400;
+      margin: 0 0 34px;
+      max-width: 480px;
+    }
+
+    .hero-btn-row {
+      display: flex;
+      align-items: center;
+    }
+
+    .btn-start-build {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      background: #141517;
+      color: #ffffff;
+      border-radius: 9999px;
+      padding: 7px 28px 7px 8px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22);
+      transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease;
+      text-decoration: none;
+    }
+    .btn-start-build:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 42px rgba(0, 0, 0, 0.3);
+    }
+    .btn-badge {
+      width: 44px;
+      height: 44px;
+      background: #ffffff;
+      color: #141517;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s ease;
+    }
+    .btn-start-build:hover .btn-badge {
+      transform: scale(1.05);
+    }
+    .btn-text {
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    /* Floating AI Card */
+    .hero-right-box {
+      position: relative;
+      animation: cardFloatingMotion 7s ease-in-out infinite;
+    }
+    @keyframes cardFloatingMotion {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .ai-floating-card {
+      width: clamp(300px, 24vw, 360px);
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 14px 14px 12px;
+      box-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.22), 0 0 1px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-sizing: border-box;
+    }
+
+    .card-thumb-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #090a0d;
+      border: 2px solid #bef24a;
+      box-shadow: 0 0 20px rgba(190, 242, 74, 0.2);
+    }
+    .card-thumb-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-footer-info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 10px 8px;
+    }
+    .card-text-col {
+      display: flex;
+      flex-direction: column;
+    }
+    .card-title {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: #111111;
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+    .card-ver {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: #888d98;
+      margin-top: 3px;
+    }
+    .card-arrow-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #111111;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+      text-decoration: none;
+    }
+    .card-arrow-btn:hover {
+      transform: translateX(3px);
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    /* Bottom Bar */
+    .hero-footer-bar {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 32px;
+      padding-top: 60px;
+      padding-bottom: 8px;
+    }
+    .hero-stat-text {
+      color: #ffffff;
+      font-size: 0.95rem;
+      line-height: 1.48;
+      font-weight: 500;
+      opacity: 0.95;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+      max-width: 380px;
+      margin: 0;
+    }
+    .hero-logos-row {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .brand-badge {
+      display: inline-flex;
+      align-items: center;
+      opacity: 0.92;
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6));
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .brand-badge:hover {
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+      .site-header { padding: 20px 24px; }
+      .hero-viewport { padding: 110px 24px 28px; }
+      .hero-center-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hero-right-box {
+        align-self: center;
+        margin-top: 30px;
+      }
+      .hero-footer-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+      }
+      .hero-logos-row {
+        justify-content: flex-start;
+        gap: 24px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-capsule { display: none; }
+      .br-desktop { display: none; }
+    }
+  </style>
+
+</head>
+<body>
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <div class="header-wrap">
+      <!-- Left: Brand stadium mark + Navigation pill -->
+      <div class="header-left">
+        <a href="index.html" class="brand-stadium" aria-label="Jupiter Home">
+          <svg width="44" height="26" viewBox="0 0 44 26" fill="none">
+            <rect x="1.5" y="1.5" width="41" height="23" rx="11.5" stroke="#111111" stroke-width="3" />
+            <rect x="12" y="7.5" width="20" height="11" rx="5.5" stroke="#111111" stroke-width="2.5" />
+          </svg>
+        </a>
+
+        <nav class="nav-capsule">
+          <a href="#works">Works</a>
+          <a href="services.html">Services</a>
+          <a href="blog.html">Insights</a>
+          <a href="services.html">Pricing</a>
+          <a href="about.html">Company</a>
+        </nav>
+      </div>
+
+      <!-- Right: Hire Team CTA -->
+      <div class="header-right">
+        <a href="contact.html" class="hire-capsule">
+          <span class="hire-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+            </svg>
+          </span>
+          <span class="hire-text">Hire Team</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Hero Section ===== -->
+  <section class="hero-viewport">
+    <!-- Ambient TV glow -->
+    <div class="tv-ambient-pulse" aria-hidden="true"></div>
+
+    <div class="hero-stage-content">
+      <!-- Main Row -->
+      <div class="hero-center-row">
+        <!-- Left Column -->
+        <div class="hero-left-box">
+          <h1 class="hero-main-heading">
+            <span class="muted-part">Scale your ideas.</span>
+            <span class="bold-part">Build with AI.</span>
+          </h1>
+          <p class="hero-lead-text">
+            Deploy custom neural agents, LLMs, and automation in<br class="br-desktop" /> one seamless flow.
+          </p>
+          <div class="hero-btn-row">
+            <a href="contact.html" class="btn-start-build">
+              <span class="btn-badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="13 17 18 12 13 7"></polyline>
+                  <polyline points="6 17 11 12 6 7"></polyline>
+                </svg>
+              </span>
+              <span class="btn-text">Start Build</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Floating Card -->
+        <div class="hero-right-box">
+          <aside class="ai-floating-card">
+            <div class="card-thumb-frame">
+              <img src="img/digital-brain.jpg" alt="Digital Brain 3D Neural Engine" class="card-thumb-img" />
+            </div>
+            <div class="card-footer-info">
+              <div class="card-text-col">
+                <h3 class="card-title">Digital Brain</h3>
+                <span class="card-ver">// Model v4.0.2</span>
+              </div>
+              <a href="services.html" class="card-arrow-btn" aria-label="Explore Digital Brain">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="hero-footer-bar">
+        <div class="hero-stat-text">
+          +2,400 active deployments and 8,200 brands<br />
+          trust our high-performance architecture.
+        </div>
+        <div class="hero-logos-row">
+          <!-- aetna -->
+          <span class="brand-badge" title="aetna">
+            <svg height="21" viewBox="0 0 85 24" fill="currentColor">
+              <text x="0" y="19" font-family="'Inter', sans-serif" font-weight="700" font-size="22" letter-spacing="-0.03em" fill="#ffffff">aetna</text>
+            </svg>
+          </span>
+          <!-- cigna healthcare -->
+          <span class="brand-badge" title="cigna healthcare">
+            <svg height="28" viewBox="0 0 115 32" fill="currentColor">
+              <path d="M12 2c-1.8 0-3.3 1.2-3.8 2.8C7.5 4.3 6.6 4 5.7 4 3.1 4 1 6.1 1 8.7c0 .5.1 1 .3 1.5C.5 10.9 0 11.9 0 13c0 2.2 1.8 4 4 4h5v4h6v-4h2c2.2 0 4-1.8 4-4 0-1.1-.5-2.1-1.3-2.8.2-.5.3-1 .3-1.5 0-2.6-2.1-4.7-4.7-4.7-.9 0-1.8.3-2.5.8C15.3 3.2 13.8 2 12 2z" fill="#ffffff" opacity="0.95"/>
+              <text x="24" y="16" font-family="'Inter', sans-serif" font-weight="800" font-size="16" letter-spacing="-0.02em" fill="#ffffff">cigna</text>
+              <text x="24" y="27" font-family="'Inter', sans-serif" font-weight="500" font-size="8.5" letter-spacing="0.04em" fill="#ffffff" opacity="0.85">healthcare</text>
+            </svg>
+          </span>
+          <!-- Anthem -->
+          <span class="brand-badge" title="Anthem">
+            <svg height="21" viewBox="0 0 110 24" fill="currentColor">
+              <text x="0" y="18" font-family="'Inter', sans-serif" font-weight="700" font-size="20" letter-spacing="-0.02em" fill="#ffffff">Anthem</text>
+              <rect x="88" y="4" width="14" height="14" rx="2" fill="#ffffff" opacity="0.25"/>
+              <rect x="93" y="6" width="4" height="10" fill="#ffffff"/>
+              <rect x="90" y="9" width="10" height="4" fill="#ffffff"/>
+            </svg>
+          </span>
+          <!-- CVS pharmacy -->
+          <span class="brand-badge" title="CVS pharmacy">
+            <svg height="21" viewBox="0 0 145 24" fill="currentColor">
+              <path d="M6 3.5C3.5 1.5 0 3.5 0 7c0 4.5 7 9 7 9s7-4.5 7-9c0-3.5-3.5-5.5-6-3.5L7 4.5 6 3.5z" fill="#ffffff" transform="translate(0, 3) scale(0.9)"/>
+              <text x="18" y="18" font-family="'Inter', sans-serif" font-weight="800" font-size="18" letter-spacing="-0.02em" fill="#ffffff">CVS</text>
+              <text x="62" y="18" font-family="Georgia, serif" font-style="italic" font-weight="400" font-size="16" fill="#ffffff" opacity="0.95">pharmacy</text>
+            </svg>
+          </span>
+          <!-- UnitedHealthcare -->
+          <span class="brand-badge" title="UnitedHealthcare">
+            <svg height="21" viewBox="0 0 165 24" fill="currentColor">
+              <rect x="0" y="4" width="3" height="14" rx="1.5" fill="#ffffff"/>
+              <rect x="5" y="2" width="3" height="18" rx="1.5" fill="#ffffff"/>
+              <rect x="10" y="6" width="3" height="10" rx="1.5" fill="#ffffff"/>
+              <text x="18" y="18" font-family="'Inter', sans-serif" font-weight="700" font-size="16" letter-spacing="-0.02em" fill="#ffffff">United</text>
+              <text x="73" y="18" font-family="'Inter', sans-serif" font-weight="400" font-size="16" letter-spacing="-0.02em" fill="#ffffff" opacity="0.95">Healthcare</text>
+            </svg>
+          </span>
+          <!-- aetna with heart -->
+          <span class="brand-badge" title="aetna">
+            <svg height="21" viewBox="0 0 95 24" fill="currentColor">
+              <path d="M5 2C2.8 0 0 1.8 0 4.5c0 3.5 5.5 7 5.5 7s5.5-3.5 5.5-7C11 1.8 8.2 0 6 2l-.5.6L5 2z" fill="#ffffff" transform="translate(0, 5) scale(0.9)"/>
+              <text x="16" y="19" font-family="'Inter', sans-serif" font-weight="700" font-size="22" letter-spacing="-0.03em" fill="#ffffff">aetna</text>
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Features ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Platform</span>
+        <h2 class="section-title">Everything you need to <span class="muted" style="color:var(--faint)">launch faster</span></h2>
+        <p class="section-sub">One platform for analytics, automation and collaboration — built for teams that move fast.</p>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card reveal">
+          <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="20" x2="6" y2="14"/><line x1="12" y1="20" x2="12" y2="8"/><line x1="18" y1="20" x2="18" y2="4"/></svg></div>
+          <h3>Realtime Analytics</h3>
+          <p>Track every metric that matters with live dashboards, custom reports and instant alerts.</p>
+          <a href="services.html" class="link-arrow">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+        <div class="card reveal" style="transition-delay:.08s">
+          <div class="icon-badge lime"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <h3>Workflow Automation</h3>
+          <p>Automate repetitive work with visual builders, triggers and AI-powered recommendations.</p>
+          <a href="services.html" class="link-arrow">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+        <div class="card reveal" style="transition-delay:.16s">
+          <div class="icon-badge amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3>Enterprise Security</h3>
+          <p>SSO, granular permissions and end-to-end encryption — compliant out of the box.</p>
+          <a href="services.html" class="link-arrow">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Dark stats band ===== -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="section-dark reveal" style="padding:70px 50px;">
+        <div class="section-head" style="margin-bottom:40px;">
+          <span class="eyebrow">By the numbers</span>
+          <h2 class="section-title">Built for planetary scale</h2>
+        </div>
+        <div class="stats-band">
+          <div class="stat"><div class="stat-num">10k+</div><div class="stat-label">Active customers</div></div>
+          <div class="stat"><div class="stat-num">99.9%</div><div class="stat-label">Uptime SLA</div></div>
+          <div class="stat"><div class="stat-num">4.9/5</div><div class="stat-label">Average rating</div></div>
+          <div class="stat"><div class="stat-num">120+</div><div class="stat-label">Countries served</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== How it works ===== -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">How it works</span>
+        <h2 class="section-title">From idea to orbit in three steps</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-num">1</div>
+          <h3>Connect your stack</h3>
+          <p>Plug in your tools, data and team in minutes with 120+ native integrations.</p>
+        </div>
+        <div class="step reveal" style="transition-delay:.08s">
+          <div class="step-num">2</div>
+          <h3>Configure your flows</h3>
+          <p>Design automations and dashboards with our drag-and-drop builder — no code needed.</p>
+        </div>
+        <div class="step reveal" style="transition-delay:.16s">
+          <div class="step-num">3</div>
+          <h3>Launch & scale</h3>
+          <p>Go live with one click and let Jupiter handle performance, security and growth.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Testimonials ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Testimonials</span>
+        <h2 class="section-title">Loved by teams worldwide</h2>
+      </div>
+      <div class="grid grid-3">
+        <div class="card testi-card reveal">
+          <div class="stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          </div>
+          <p class="testi-text">"Jupiter replaced four tools in our stack overnight. Our team ships twice as fast and nothing falls through the cracks."</p>
+          <div class="testi-head">
+            <div class="avatar">SM</div>
+            <div><strong>Sarah Mitchell</strong><small>COO, Orbita</small></div>
+          </div>
+        </div>
+        <div class="card testi-card reveal" style="transition-delay:.08s">
+          <div class="stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          </div>
+          <p class="testi-text">"The automation builder is unreal. We cut onboarding time by 60% in the first month after switching."</p>
+          <div class="testi-head">
+            <div class="avatar av-2">DK</div>
+            <div><strong>David Kim</strong><small>Head of Ops, Vertex</small></div>
+          </div>
+        </div>
+        <div class="card testi-card reveal" style="transition-delay:.16s">
+          <div class="stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          </div>
+          <p class="testi-text">"Best decision we made this year. Support answers in minutes and the product keeps getting better."</p>
+          <div class="testi-head">
+            <div class="avatar av-3">AR</div>
+            <div><strong>Amara Reyes</strong><small>Founder, Nexon</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="cta-banner reveal">
+        <h2>Ready for lift-off?</h2>
+        <p>Join thousands of teams building with Jupiter. Free 14-day trial, no credit card required.</p>
+        <div class="hero-actions">
+          <a href="contact.html" class="btn btn-light">
+            <span class="btn-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+            </span>
+            Start Free Trial
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand" style="background:var(--dark);color:#fff;">
+            <svg class="brand-logo" viewBox="0 0 32 32" fill="none">
+              <circle cx="16" cy="16" r="7" fill="#d5f34a"/>
+              <ellipse cx="16" cy="16" rx="13" ry="4.5" stroke="#d5f34a" stroke-width="2" transform="rotate(-18 16 16)"/>
+            </svg>
+            <span>Jupiter</span>
+          </a>
+          <p>The all-in-one SaaS platform to launch, automate and scale your business.</p>
+          <div class="social-links">
+            <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
+            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V9h4v1.5A6 6 0 0 1 16 8z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="#" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="blog.html">Insights</a></li>
+            <li><a href="services.html">Pricing</a></li>
+            <li><a href="contact.html">Support</a></li>
+            <li><a href="about.html">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Stay in orbit</h4>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" placeholder="Your email" required aria-label="Email address" />
+            <button type="submit" class="btn-ico" aria-label="Subscribe" style="width:42px;height:42px;border-radius:50%;border:0;display:grid;place-items:center;">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+          </form>
+          <p class="newsletter-note" id="newsSuccess">Thanks — you're subscribed! 🚀</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span class="year">2026</span> Jupiter Inc. All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Security</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
