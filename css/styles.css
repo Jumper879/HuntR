@@ -1369,3 +1369,56 @@ h1, h2, h3, h4 { line-height: 1.08; font-weight: 600; letter-spacing: -0.035em; 
     display: none;
   }
 }
+
+
+/* Mobile Navigation Drawer */
+@media (max-width: 860px) {
+  .nav-toggle {
+    display: flex !important;
+    margin-left: auto !important;
+  }
+  .nav-cta {
+    display: none !important;
+  }
+  .nav-pill {
+    position: fixed !important;
+    top: 76px !important;
+    left: 4% !important;
+    right: 4% !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 6px !important;
+    border-radius: 20px !important;
+    padding: 16px !important;
+    background: #ffffff !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.16) !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    opacity: 0 !important;
+    transform: translateY(-10px) !important;
+    pointer-events: none !important;
+    transition: opacity 0.25s ease, transform 0.25s ease !important;
+    z-index: 9999 !important;
+    display: flex !important;
+  }
+  .nav-pill.open {
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto !important;
+  }
+  .nav-pill a {
+    padding: 12px 18px !important;
+    border-radius: 12px !important;
+    font-size: 1.05rem !important;
+    font-weight: 600 !important;
+    color: #1c1c1a !important;
+    text-align: left !important;
+    display: block !important;
+  }
+  .nav-pill a:hover {
+    background: #f3f2ef !important;
+  }
+  .nav-pill a.active {
+    background: #131312 !important;
+    color: #ffffff !important;
+  }
+}

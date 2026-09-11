@@ -11,102 +11,145 @@
   <link rel="stylesheet" href="css/styles.css?v=2.5" />
 
   <style id="hero-critical-styles">
-    /* Reset and font setup for the hero viewport */
-    .site-header {
-      position: absolute;
+    /* Global Navigation Bar - Unified Across All Pages */
+    .navbar {
+      position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      z-index: 100;
-      padding: 28px 48px;
-      box-sizing: border-box;
+      z-index: 1000;
+      padding: 20px 0;
+      transition: padding 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
     }
-    .header-wrap {
-      max-width: 1360px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
+    .navbar.scrolled {
+      padding: 12px 0;
+      background: rgba(243, 242, 239, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
     }
-    .header-left {
+    .nav-inner {
+      width: min(1200px, 94%);
+      margin-inline: auto;
       display: flex;
       align-items: center;
       gap: 16px;
     }
-    .brand-stadium {
+    .brand {
       display: inline-flex;
       align-items: center;
-      line-height: 0;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      background: #131312;
+      color: #ffffff;
+      padding: 10px 20px 10px 12px;
+      border-radius: 999px;
+      box-shadow: 0 14px 40px rgba(17, 17, 16, 0.1);
       text-decoration: none;
-      transition: transform 0.2s ease, opacity 0.2s ease;
+      flex-shrink: 0;
     }
-    .brand-stadium:hover {
-      transform: scale(1.04);
-      opacity: 0.85;
+    .brand-logo {
+      width: 26px;
+      height: 26px;
+      display: block;
     }
-    .nav-capsule {
+    .nav-pill {
       display: flex;
       align-items: center;
+      gap: 6px;
       background: #ffffff;
-      border-radius: 9999px;
-      padding: 5px 8px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03);
-      border: 1px solid rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(17, 17, 16, 0.09);
+      border-radius: 999px;
+      padding: 7px 10px;
+      box-shadow: 0 2px 10px rgba(17, 17, 16, 0.06);
     }
-    .nav-capsule a {
-      color: #4b5262;
-      font-size: 14px;
+    .nav-pill a {
+      font-size: 0.92rem;
       font-weight: 500;
-      padding: 7px 18px;
-      border-radius: 9999px;
+      color: #3d3d3a;
+      padding: 8px 16px;
+      border-radius: 999px;
+      transition: background 0.2s ease, color 0.2s ease;
       text-decoration: none;
-      transition: color 0.15s ease, background 0.15s ease;
       white-space: nowrap;
-      display: inline-block;
     }
-    .nav-capsule a:hover {
-      color: #111111;
-      background: rgba(0, 0, 0, 0.04);
+    .nav-pill a:hover {
+      background: #e9e8e4;
+      color: #111110;
     }
-
-    .header-right {
-      display: flex;
-      align-items: center;
+    .nav-pill a.active {
+      background: #131312;
+      color: #ffffff;
     }
-    .hire-capsule {
+    .nav-cta {
+      margin-left: auto;
       display: inline-flex;
       align-items: center;
       gap: 10px;
       background: #ffffff;
-      color: #111111;
-      border-radius: 9999px;
-      padding: 6px 18px 6px 7px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03);
-      border: 1px solid rgba(0, 0, 0, 0.04);
-      text-decoration: none;
-      font-size: 14px;
+      border: 1px solid rgba(17, 17, 16, 0.09);
+      border-radius: 999px;
+      padding: 7px 22px 7px 7px;
       font-weight: 600;
+      font-size: 0.92rem;
+      color: #111110;
+      box-shadow: 0 2px 10px rgba(17, 17, 16, 0.06);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+      white-space: nowrap;
     }
-    .hire-capsule:hover {
+    .nav-cta:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 14px 40px rgba(17, 17, 16, 0.1);
     }
-    .hire-icon {
-      width: 28px;
-      height: 28px;
-      background: #111111;
+    .nav-cta .btn-ico {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: #131312;
       color: #ffffff;
-      border-radius: 7px;
       display: grid;
       place-items: center;
       flex-shrink: 0;
     }
-    .hire-text {
-      font-size: 14px;
-      font-weight: 600;
-      color: #111111;
+    .nav-cta svg {
+      width: 16px;
+      height: 16px;
+    }
+    .nav-toggle {
+      display: none;
+      margin-left: auto;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      background: #ffffff;
+      border: 1px solid rgba(17, 17, 16, 0.12);
+      border-radius: 999px;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      box-shadow: 0 2px 10px rgba(17, 17, 16, 0.08);
+      cursor: pointer;
+      z-index: 1001;
+    }
+    .nav-toggle span {
+      width: 20px;
+      height: 2px;
+      border-radius: 2px;
+      background: #111110;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      display: block;
+    }
+    .nav-toggle.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .nav-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .nav-toggle.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
     }
 
     /* Hero Viewport */
@@ -127,8 +170,6 @@
       overflow: hidden;
       box-sizing: border-box;
     }
-
-    /* Ambient glow on TV screen */
     .tv-ambient-pulse {
       position: absolute;
       left: 50%;
@@ -146,11 +187,10 @@
       0%, 100% { opacity: 0.85; transform: translate(-50%, -46%) scale(1); }
       50% { opacity: 0.55; transform: translate(-50%, -46%) scale(0.95); }
     }
-
     .hero-stage-content {
       position: relative;
       z-index: 10;
-      max-width: 1360px;
+      max-width: 1200px;
       width: 100%;
       margin: 0 auto;
       display: flex;
@@ -158,7 +198,6 @@
       justify-content: space-between;
       flex-grow: 1;
     }
-
     .hero-center-row {
       display: flex;
       align-items: center;
@@ -166,11 +205,9 @@
       gap: 40px;
       padding-top: 20px;
     }
-
     .hero-left-box {
       max-width: 580px;
     }
-
     .hero-main-heading {
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
       letter-spacing: -0.045em;
@@ -179,18 +216,17 @@
     }
     .muted-part {
       display: block;
-      font-size: clamp(3.2rem, 5.8vw, 5.4rem);
+      font-size: clamp(3.2rem, 5.8vw, 5.2rem);
       font-weight: 600;
       color: #9297a2;
     }
     .bold-part {
       display: block;
-      font-size: clamp(3.2rem, 5.8vw, 5.4rem);
+      font-size: clamp(3.2rem, 5.8vw, 5.2rem);
       font-weight: 700;
       color: #111111;
       margin-top: 4px;
     }
-
     .hero-lead-text {
       color: #4b5262;
       font-size: clamp(1.02rem, 1.3vw, 1.15rem);
@@ -199,12 +235,10 @@
       margin: 0 0 34px;
       max-width: 480px;
     }
-
     .hero-btn-row {
       display: flex;
       align-items: center;
     }
-
     .btn-start-build {
       display: inline-flex;
       align-items: center;
@@ -240,8 +274,6 @@
       font-weight: 600;
       letter-spacing: -0.01em;
     }
-
-    /* Floating AI Card */
     .hero-right-box {
       position: relative;
       animation: cardFloatingMotion 7s ease-in-out infinite;
@@ -250,7 +282,6 @@
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
     }
-
     .ai-floating-card {
       width: clamp(300px, 24vw, 360px);
       background: #ffffff;
@@ -260,7 +291,6 @@
       border: 1px solid rgba(255, 255, 255, 0.8);
       box-sizing: border-box;
     }
-
     .card-thumb-frame {
       position: relative;
       width: 100%;
@@ -277,7 +307,6 @@
       object-fit: cover;
       display: block;
     }
-
     .card-footer-info {
       display: flex;
       align-items: center;
@@ -315,8 +344,6 @@
       transform: translateX(3px);
       background-color: rgba(0, 0, 0, 0.05);
     }
-
-    /* Bottom Bar */
     .hero-footer-bar {
       display: flex;
       align-items: flex-end;
@@ -354,69 +381,137 @@
       transform: translateY(-1px);
     }
 
-    /* Responsive adjustments */
-    @media (max-width: 1024px) {
-      .site-header { padding: 20px 24px; }
-      .hero-viewport { padding: 110px 24px 28px; }
+    /* Mobile & Tablet Phone View Styles */
+    @media (max-width: 860px) {
+      .navbar {
+        padding: 14px 0 !important;
+      }
+      .nav-inner {
+        width: 92% !important;
+      }
+      .nav-cta {
+        display: none !important;
+      }
+      .nav-toggle {
+        display: flex !important;
+      }
+      .nav-pill {
+        position: fixed !important;
+        top: 76px !important;
+        left: 4% !important;
+        right: 4% !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 6px !important;
+        border-radius: 20px !important;
+        padding: 16px !important;
+        background: #ffffff !important;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.16) !important;
+        border: 1px solid rgba(0, 0, 0, 0.08) !important;
+        opacity: 0 !important;
+        transform: translateY(-10px) !important;
+        pointer-events: none !important;
+        transition: opacity 0.25s ease, transform 0.25s ease !important;
+        z-index: 9999 !important;
+        display: flex !important;
+      }
+      .nav-pill.open {
+        opacity: 1 !important;
+        transform: none !important;
+        pointer-events: auto !important;
+      }
+      .nav-pill a {
+        padding: 12px 18px !important;
+        border-radius: 12px !important;
+        font-size: 1.05rem !important;
+        font-weight: 600 !important;
+        color: #1c1c1a !important;
+        text-align: left !important;
+        display: block !important;
+        background: transparent !important;
+      }
+      .nav-pill a:hover {
+        background: #f3f2ef !important;
+      }
+      .nav-pill a.active {
+        background: #131312 !important;
+        color: #ffffff !important;
+      }
+
+      .hero-viewport {
+        padding: 100px 20px 30px !important;
+        min-height: auto !important;
+      }
       .hero-center-row {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 32px !important;
+      }
+      .hero-left-box {
+        max-width: 100% !important;
+      }
+      .muted-part, .bold-part {
+        font-size: clamp(2.4rem, 8.5vw, 3.8rem) !important;
+      }
+      .hero-lead-text {
+        font-size: 1.02rem !important;
+        margin-bottom: 24px !important;
+      }
+      .br-desktop {
+        display: none !important;
       }
       .hero-right-box {
-        align-self: center;
-        margin-top: 30px;
+        align-self: center !important;
+        width: 100% !important;
+        max-width: 360px !important;
+      }
+      .ai-floating-card {
+        width: 100% !important;
       }
       .hero-footer-bar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 24px;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 22px !important;
+        padding-top: 44px !important;
       }
       .hero-logos-row {
-        justify-content: flex-start;
-        gap: 24px;
+        justify-content: flex-start !important;
+        gap: 20px 28px !important;
       }
-    }
-
-    @media (max-width: 768px) {
-      .nav-capsule { display: none; }
-      .br-desktop { display: none; }
     }
   </style>
 
 </head>
 <body>
-  <!-- ===== Header ===== -->
-  <header class="site-header">
-    <div class="header-wrap">
-      <!-- Left: Brand stadium mark + Navigation pill -->
-      <div class="header-left">
-        <a href="index.html" class="brand-stadium" aria-label="Jupiter Home">
-          <svg width="44" height="26" viewBox="0 0 44 26" fill="none">
-            <rect x="1.5" y="1.5" width="41" height="23" rx="11.5" stroke="#111111" stroke-width="3" />
-            <rect x="12" y="7.5" width="20" height="11" rx="5.5" stroke="#111111" stroke-width="2.5" />
-          </svg>
-        </a>
+    <!-- ===== Navbar ===== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand">
+        <svg class="brand-logo" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <circle cx="16" cy="16" r="7" fill="#d5f34a"/>
+          <ellipse cx="16" cy="16" rx="13" ry="4.5" stroke="#d5f34a" stroke-width="2" transform="rotate(-18 16 16)"/>
+        </svg>
+        <span>Jupiter</span>
+      </a>
 
-        <nav class="nav-capsule">
-          <a href="#works">Works</a>
-          <a href="services.html">Services</a>
-          <a href="blog.html">Insights</a>
-          <a href="services.html">Pricing</a>
-          <a href="about.html">Company</a>
-        </nav>
-      </div>
+      <nav class="nav-pill" id="navPill" aria-label="Main navigation">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
 
-      <!-- Right: Hire Team CTA -->
-      <div class="header-right">
-        <a href="contact.html" class="hire-capsule">
-          <span class="hire-icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
-            </svg>
-          </span>
-          <span class="hire-text">Hire Team</span>
-        </a>
-      </div>
+      <a href="contact.html" class="nav-cta">
+        <span class="btn-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+        </span>
+        Get Started
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
