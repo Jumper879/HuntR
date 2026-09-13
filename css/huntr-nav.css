@@ -1,0 +1,236 @@
+/* ==========================================================================
+   HuntR Global Navigation
+   Logo: Exact text "HuntR" with an immediate inline search bar of same height/font
+   5 Pages: Home, New Listings, Our Team, Get Paid, Contact
+   ========================================================================== */
+
+.huntr-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: var(--color-canvas);
+  border-bottom: 1px solid var(--color-border);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.huntr-header.scrolled {
+  background-color: rgba(246, 245, 242, 0.96);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-sm);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+  gap: 20px;
+}
+
+/* Brand Group: Exact "HuntR" text followed immediately by search bar */
+.brand-search-unit {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.brand-text-logo {
+  font-family: var(--font-primary);
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #FFFFFF;
+  background-color: var(--color-dark);
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-dark);
+  user-select: none;
+  text-decoration: none;
+}
+
+.brand-text-logo span.r-accent {
+  color: var(--color-chartreuse);
+}
+
+/* Matching search bar immediately after HuntR logo */
+.nav-search-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 42px;
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  padding: 0 14px 0 12px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  width: 250px;
+}
+
+.nav-search-bar:focus-within {
+  border-color: var(--color-dark);
+  box-shadow: 0 0 0 2px rgba(17, 20, 18, 0.08);
+}
+
+.nav-search-bar svg {
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+.nav-search-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  width: 100%;
+}
+
+.nav-search-input::placeholder {
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+/* Desktop Navigation Links */
+.nav-links-wrap {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-link {
+  font-family: var(--font-primary);
+  font-size: 0.925rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  position: relative;
+  padding-block: 6px;
+  transition: color 0.15s ease;
+}
+
+.nav-link:hover {
+  color: var(--color-text-primary);
+}
+
+.nav-link.active {
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--color-dark);
+  border-radius: 2px;
+}
+
+/* Header Action Right */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.nav-cta-btn {
+  font-size: 0.875rem;
+  padding: 10px 20px;
+  height: 42px;
+}
+
+/* Mobile Hamburger */
+.mobile-toggle-btn {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-text-primary);
+}
+
+/* Mobile Drawer Overlay */
+.mobile-menu-drawer {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  width: 100%;
+  height: calc(100vh - var(--header-height));
+  background-color: var(--color-canvas);
+  border-top: 1px solid var(--color-border);
+  padding: 24px;
+  display: none;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 999;
+  overflow-y: auto;
+}
+
+.mobile-menu-drawer.open {
+  display: flex;
+}
+
+.mobile-menu-drawer .nav-link {
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding-block: 10px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.mobile-search-bar {
+  display: none;
+  margin-top: 10px;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1080px) {
+  .nav-search-bar {
+    width: 180px;
+  }
+  .nav-links-wrap {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav-links-wrap {
+    display: none;
+  }
+  .mobile-toggle-btn {
+    display: flex;
+  }
+  .nav-search-bar {
+    display: none;
+  }
+  .mobile-search-bar {
+    display: flex;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-text-logo {
+    padding: 0 14px;
+    font-size: 1.05rem;
+  }
+  .nav-cta-btn {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+  }
+}

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get Paid — HuntR | Earn Bounties for Spotting Vacant Houses</title>
+  <meta name="description" content="Earn up to ₦250,000 cash bounty by spotting vacant homes and uploading them to HuntR. No agent license required. Paid directly to your bank account." />
+  
+  <!-- HuntR Design System (Zero Gradients, Pure Solid Editorial Aesthetic) -->
+  <link rel="stylesheet" href="css/huntr-core.css" />
+  <link rel="stylesheet" href="css/huntr-nav.css" />
+  <link rel="stylesheet" href="css/huntr-ui.css" />
+</head>
+<body>
+
+  <!-- Global Header -->
+  <header class="huntr-header">
+    <div class="container-wide nav-container">
+      
+      <!-- Brand & Search Unit: Exact text "HuntR" with search bar immediately after -->
+      <div class="brand-search-unit">
+        <a href="index.html" class="brand-text-logo" title="HuntR Real Estate">Hunt<span class="r-accent">R</span></a>
+        <form class="nav-search-bar" action="listings.html" method="GET">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" name="q" class="nav-search-input" placeholder="Search Lekki, Ikoyi, Maitama..." aria-label="Search properties" />
+        </form>
+      </div>
+
+      <!-- Nav Links -->
+      <nav class="nav-links-wrap" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="listings.html" class="nav-link">New Listings</a>
+        <a href="team.html" class="nav-link">Our Team</a>
+        <a href="get-paid.html" class="nav-link active">Get Paid</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Action Button & Mobile Toggle -->
+      <div class="nav-actions">
+        <a href="#uploadSection" class="btn btn-chartreuse nav-cta-btn">Upload a House</a>
+        <button class="mobile-toggle-btn" id="mobileMenuToggle" aria-label="Toggle Navigation">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-menu-drawer" id="mobileDrawer">
+      <form class="nav-search-bar mobile-search-bar" action="listings.html" method="GET">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" name="q" class="nav-search-input" placeholder="Search Lekki, Ikoyi, Maitama..." />
+      </form>
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="listings.html" class="nav-link">New Listings</a>
+      <a href="team.html" class="nav-link">Our Team</a>
+      <a href="get-paid.html" class="nav-link active">Get Paid (Bounties)</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="#uploadSection" class="btn btn-chartreuse" style="margin-top: 12px;">Upload a House & Get Paid</a>
+    </div>
+  </header>
+
+  <main class="section-padding">
+    <div class="container">
+      
+      <!-- Hero Section -->
+      <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; margin-bottom: 56px;">
+        <div>
+          <span class="eyebrow">COMMUNITY BOUNTY PROGRAM</span>
+          <h1 style="margin-bottom: 18px;">
+            Turn Your Daily Commute Into Cash.<br>Earn Up To ₦250,000 per House.
+          </h1>
+          <p style="font-size: 1.15rem; line-height: 1.6; color: var(--color-text-secondary); margin-bottom: 24px;">
+            You don’t need an agent license or a real estate office. Spot a vacant property, apartment, or "To Let" signboard around your street or route. Take 3 photos, upload it on HuntR, and get paid straight into your bank once verified!
+          </p>
+          <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+            <a href="#uploadSection" class="btn btn-chartreuse">Upload a House Now</a>
+            <a href="#bountyCalc" class="btn btn-outline">Calculate Payout</a>
+          </div>
+        </div>
+
+        <div style="border-radius: var(--radius-card); overflow: hidden; border: 1px solid var(--color-border); box-shadow: var(--shadow-md);">
+          <img src="img/real-hunter-scout.jpg" alt="Real Nigerian Hunter Scout in Lekki Lagos" style="width: 100%; height: 380px; object-fit: cover; object-position: center top;" />
+        </div>
+      </div>
+
+      <!-- Quick Metrics Bar -->
+      <div style="background-color: var(--color-dark); color: #FFFFFF; border-radius: var(--radius-card); padding: 36px 28px; margin-bottom: 64px; border: 1px solid var(--color-dark-border);">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; text-align: center;">
+          <div>
+            <div style="font-family: var(--font-display); font-size: 2.2rem; font-weight: 800; color: var(--color-chartreuse);">₦14,850,000+</div>
+            <div style="font-size: 0.85rem; color: #9EAAA1; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px;">Paid to Nigerian Hunters</div>
+          </div>
+          <div>
+            <div style="font-family: var(--font-display); font-size: 2.2rem; font-weight: 800; color: #FFFFFF;">1,240+</div>
+            <div style="font-size: 0.85rem; color: #9EAAA1; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px;">Houses Documented</div>
+          </div>
+          <div>
+            <div style="font-family: var(--font-display); font-size: 2.2rem; font-weight: 800; color: var(--color-chartreuse);">24 Hours</div>
+            <div style="font-size: 0.85rem; color: #9EAAA1; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px;">Average Verification Time</div>
+          </div>
+          <div>
+            <div style="font-family: var(--font-display); font-size: 2.2rem; font-weight: 800; color: #FFFFFF;">₦0 Fees</div>
+            <div style="font-size: 0.85rem; color: #9EAAA1; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px;">Free to Join & Upload</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4-Step Process Grid -->
+      <div style="margin-bottom: 64px;">
+        <div style="text-align: center; max-width: 600px; margin-inline: auto; margin-bottom: 36px;">
+          <span class="eyebrow">HOW IT WORKS</span>
+          <h2>4 Simple Steps to Your First Bounty</h2>
+        </div>
+
+        <div class="bounty-steps-grid">
+          <div class="bounty-step-card">
+            <div class="step-num">01</div>
+            <h4>Spot a Property</h4>
+            <p style="font-size: 0.9rem; color: var(--color-text-secondary); margin-top: 8px;">
+              Walk or drive past a vacant apartment, finished duplex, or house with a "To Let / For Sale" signboard in your area.
+            </p>
+          </div>
+
+          <div class="bounty-step-card">
+            <div class="step-num">02</div>
+            <h4>Snap & Note</h4>
+            <p style="font-size: 0.9rem; color: var(--color-text-secondary); margin-top: 8px;">
+              Snap 2-3 quick exterior photos on your phone and copy the caretaker or landlord’s phone number from the gate or board.
+            </p>
+          </div>
+
+          <div class="bounty-step-card">
+            <div class="step-num">03</div>
+            <h4>Upload to HuntR</h4>
+            <p style="font-size: 0.9rem; color: var(--color-text-secondary); margin-top: 8px;">
+              Open this page, fill the 90-second form with the street address, property type, and your bank payout details.
+            </p>
+          </div>
+
+          <div class="bounty-step-card">
+            <div class="step-num">04</div>
+            <h4>Receive Cash Transfer</h4>
+            <p style="font-size: 0.9rem; color: var(--color-text-secondary); margin-top: 8px;">
+              Our verified scout audits the property. Once verified, your cash bounty (₦50k - ₦250k) is transferred directly into your bank!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Bounty Calculator -->
+      <div id="bountyCalc" style="background-color: var(--color-canvas-subtle); border-radius: var(--radius-card); padding: 48px; border: 1px solid var(--color-border); margin-bottom: 64px;">
+        <div class="calc-grid">
+          <div>
+            <span class="eyebrow">BOUNTY ESTIMATOR</span>
+            <h2 style="margin-bottom: 12px;">Calculate Your Monthly Hunter Income</h2>
+            <p style="margin-bottom: 24px;">
+              Select the kind of property you regularly spot and adjust the slider to see your potential earnings.
+            </p>
+
+            <div class="form-group">
+              <label for="bountyPropertyTier" class="form-label">Typical Property Spotted:</label>
+              <select id="bountyPropertyTier" class="form-select">
+                <option value="50000">1 or 2-Bedroom Flat / Apartment (₦50,000 Bounty)</option>
+                <option value="120000" selected>3 or 4-Bedroom Duplex / Terrace (₦120,000 Bounty)</option>
+                <option value="250000">Luxury Mansion / Commercial Property (₦250,000 Bounty)</option>
+              </select>
+            </div>
+
+            <div class="form-group" style="margin-top: 24px;">
+              <label for="bountyVolumeSlider" class="form-label">
+                How many properties can you spot per month? 
+                <strong id="bountyVolumeDisplay" style="color: var(--color-olive);">3 properties</strong>
+              </label>
+              <input type="range" id="bountyVolumeSlider" class="range-input" min="1" max="10" step="1" value="3" aria-label="Volume of properties spotted per month" />
+              <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--color-text-muted); margin-top: 8px;">
+                <span>1 house / mo</span>
+                <span>5 houses / mo</span>
+                <span>10 houses / mo</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: #FFFFFF; border: 1px solid var(--color-border); border-radius: var(--radius-card); padding: 36px; text-align: center;">
+            <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--color-text-muted); letter-spacing: 0.08em; display: block; margin-bottom: 8px;">
+              Estimated Monthly Payout
+            </span>
+            <div id="monthlyBountyDisplay" style="font-family: var(--font-display); font-size: 2.8rem; font-weight: 800; color: var(--color-dark); margin-bottom: 8px;">
+              ₦360,000
+            </div>
+            <div style="font-size: 0.9rem; color: var(--color-olive); font-weight: 600; margin-bottom: 24px;">
+              Annual Potential: <span id="annualBountyDisplay">₦4,320,000</span>
+            </div>
+            <a href="#uploadSection" class="btn btn-chartreuse" style="width: 100%;">
+              Upload Your First House Now
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Property Upload & Registration Form -->
+      <div id="uploadSection" class="upload-form-box" style="margin-bottom: 64px;">
+        <div style="text-align: center; max-width: 640px; margin-inline: auto; margin-bottom: 36px;">
+          <span class="eyebrow">UPLOAD PORTAL</span>
+          <h2>Register & Upload Spotted House</h2>
+          <p>Submit property details below. Takes less than 90 seconds.</p>
+        </div>
+
+        <form id="hunterUploadForm">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+            
+            <!-- Hunter Info -->
+            <div class="form-group">
+              <label for="hunterName" class="form-label">Your Full Name *</label>
+              <input type="text" id="hunterName" class="form-input" placeholder="e.g. Babajide Lawal" required />
+            </div>
+
+            <div class="form-group">
+              <label for="hunterPhone" class="form-label">WhatsApp / Phone Number *</label>
+              <input type="tel" id="hunterPhone" class="form-input" placeholder="e.g. 0803 123 4567" required />
+            </div>
+
+            <!-- Bank Payout Info -->
+            <div class="form-group">
+              <label for="hunterBank" class="form-label">Your Bank for Cash Payout *</label>
+              <select id="hunterBank" class="form-select" required>
+                <option value="">Select your bank...</option>
+                <option value="GTBank">Guaranty Trust Bank (GTBank)</option>
+                <option value="Access Bank">Access Bank</option>
+                <option value="Zenith Bank">Zenith Bank</option>
+                <option value="First Bank">First Bank of Nigeria</option>
+                <option value="Kuda Bank">Kuda Microfinance Bank</option>
+                <option value="OPay">OPay</option>
+                <option value="UBA">United Bank for Africa (UBA)</option>
+                <option value="Stanbic IBTC">Stanbic IBTC Bank</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="hunterAccount" class="form-label">Account Number (10 Digits) *</label>
+              <input type="text" id="hunterAccount" class="form-input" placeholder="0123456789" maxlength="10" required />
+            </div>
+
+            <!-- Spotted Property Info -->
+            <div class="form-group" style="grid-column: 1 / -1;">
+              <label for="propertyAddress" class="form-label">Exact Property Street Address & Landmark *</label>
+              <input type="text" id="propertyAddress" class="form-input" placeholder="e.g. Plot 14, Olosa Street, off Admiralty Way, Lekki Phase 1" required />
+            </div>
+
+            <div class="form-group">
+              <label for="propertyCity" class="form-label">City / State *</label>
+              <select id="propertyCity" class="form-select" required>
+                <option value="Lagos">Lagos State</option>
+                <option value="Abuja">Abuja (FCT)</option>
+                <option value="Rivers">Rivers State (Port Harcourt)</option>
+                <option value="Oyo">Oyo State (Ibadan)</option>
+                <option value="Ogun">Ogun State</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="propertyCategory" class="form-label">Property Category *</label>
+              <select id="propertyCategory" class="form-select" required>
+                <option value="Duplex">Detached or Semi-Detached Duplex</option>
+                <option value="Apartment">Flat / Serviced Apartment</option>
+                <option value="Terrace">Terraced Townhouse</option>
+                <option value="Mansion">Luxury Villa / Mansion</option>
+                <option value="Commercial">Commercial / Office Complex</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="landlordContact" class="form-label">Caretaker / Landlord Phone on Signboard *</label>
+              <input type="tel" id="landlordContact" class="form-input" placeholder="e.g. 0802 987 6543 (as seen on gate)" required />
+            </div>
+
+            <div class="form-group">
+              <label for="estRent" class="form-label">Estimated Rent / Price (Optional)</label>
+              <input type="text" id="estRent" class="form-input" placeholder="e.g. ₦12M / year" />
+            </div>
+
+            <!-- Photo Upload Dropzone -->
+            <div class="form-group" style="grid-column: 1 / -1;">
+              <label class="form-label">Photos of the Property (Gate, Building, or Signboard)</label>
+              <div class="file-dropzone" onclick="alert('File selector opened: You can select 1 to 4 photos from your device.');">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-olive)" stroke-width="2" style="margin: 0 auto 10px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                <div style="font-weight: 600; font-size: 0.95rem; margin-bottom: 4px;">Click to upload photos or take picture</div>
+                <div style="font-size: 0.8rem; color: var(--color-text-muted);">PNG, JPG up to 15MB each (Exterior, gate, or signboard)</div>
+              </div>
+            </div>
+
+          </div>
+
+          <div style="margin-top: 28px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+            <div style="font-size: 0.85rem; color: var(--color-text-muted);">
+              Estimated Bounty for this property: <strong id="formBountyEstimate" style="color: var(--color-dark); font-size: 1rem;">₦120,000</strong>
+            </div>
+            <button type="submit" class="btn btn-chartreuse" style="padding-inline: 32px;">
+              Submit Property & Claim Bounty
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Top Hunters Leaderboard -->
+      <div style="background-color: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius-card); padding: 40px; box-shadow: var(--shadow-sm);">
+        <div style="text-align: center; max-width: 600px; margin-inline: auto; margin-bottom: 32px;">
+          <span class="eyebrow">COMMUNITY LEADERBOARD</span>
+          <h2>Top Earners This Month</h2>
+          <p>Real Nigerian hunters spotting houses and cashing out weekly.</p>
+        </div>
+
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem; text-align: left;">
+            <thead>
+              <tr style="border-bottom: 2px solid var(--color-border); color: var(--color-text-muted); font-size: 0.8rem; text-transform: uppercase;">
+                <th style="padding: 12px 16px;">Rank</th>
+                <th style="padding: 12px 16px;">Hunter Name</th>
+                <th style="padding: 12px 16px;">Primary Scouting Zone</th>
+                <th style="padding: 12px 16px;">Properties Verified</th>
+                <th style="padding: 12px 16px; text-align: right;">Total Cash Earned</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--color-border);">
+                <td style="padding: 16px;"><span class="badge badge-chartreuse">#1</span></td>
+                <td style="padding: 16px; font-weight: 700;">Kudirat S.</td>
+                <td style="padding: 16px; color: var(--color-text-muted);">Surulere & Yaba, Lagos</td>
+                <td style="padding: 16px;">18 houses</td>
+                <td style="padding: 16px; text-align: right; font-weight: 800; color: var(--color-dark);">₦1,450,000</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--color-border);">
+                <td style="padding: 16px;"><span class="badge badge-dark">#2</span></td>
+                <td style="padding: 16px; font-weight: 700;">Chibuike O.</td>
+                <td style="padding: 16px; color: var(--color-text-muted);">Maitama & Wuse II, Abuja</td>
+                <td style="padding: 16px;">14 houses</td>
+                <td style="padding: 16px; text-align: right; font-weight: 800; color: var(--color-dark);">₦1,120,000</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--color-border);">
+                <td style="padding: 16px;"><span class="badge badge-dark">#3</span></td>
+                <td style="padding: 16px; font-weight: 700;">Tunde B.</td>
+                <td style="padding: 16px; color: var(--color-text-muted);">Lekki Phase 1 & Chevron, Lagos</td>
+                <td style="padding: 16px;">11 houses</td>
+                <td style="padding: 16px; text-align: right; font-weight: 800; color: var(--color-dark);">₦890,000</td>
+              </tr>
+              <tr>
+                <td style="padding: 16px;"><span class="badge badge-dark">#4</span></td>
+                <td style="padding: 16px; font-weight: 700;">Fatima Y.</td>
+                <td style="padding: 16px; color: var(--color-text-muted);">Ikeja GRA & Magodo, Lagos</td>
+                <td style="padding: 16px;">9 houses</td>
+                <td style="padding: 16px; text-align: right; font-weight: 800; color: var(--color-dark);">₦720,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="huntr-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="footer-brand-title">Hunt<span style="color: var(--color-chartreuse);">R</span></div>
+        <p style="color: #A2AAA4; font-size: 0.925rem; max-width: 320px; line-height: 1.6; margin-bottom: 20px;">
+          Nigeria's direct property network. Eliminating middleman agent fees and empowering everyday citizens to hunt and earn.
+        </p>
+        <div style="font-size: 0.85rem; color: #768078;">
+          📍 Victoria Island, Lagos & Maitama, Abuja
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Platform</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="listings.html">New Listings</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="get-paid.html">Get Paid (Bounty)</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Prime Locations</div>
+        <ul class="footer-links">
+          <li><a href="listings.html?q=Lekki">Lekki Phase 1</a></li>
+          <li><a href="listings.html?q=Ikoyi">Ikoyi Waterfront</a></li>
+          <li><a href="listings.html?q=Victoria%20Island">Victoria Island</a></li>
+          <li><a href="listings.html?q=Maitama">Maitama, Abuja</a></li>
+          <li><a href="listings.html?q=Ikeja">Ikeja GRA</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Legal & Security</div>
+        <ul class="footer-links">
+          <li><a href="contact.html">Escrow Guarantee</a></li>
+          <li><a href="contact.html">Land Registry Verification</a></li>
+          <li><a href="contact.html">Anti-Fraud Protocol</a></li>
+          <li><a href="contact.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>&copy; 2026 HuntR Technologies Nigeria Ltd. All rights reserved. Zero Agent Fees.</div>
+      <div>Designed with pure solid editorial aesthetics • No gradients • Built for Nigeria</div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/calculator.js"></script>
+  <script src="js/listings.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -3,232 +3,247 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact — Jupiter</title>
-  <meta name="description" content="Get in touch with the Jupiter team — sales, support and everything in between." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <title>Contact Us — HuntR | Lagos & Abuja Direct Real Estate Hubs</title>
+  <meta name="description" content="Contact HuntR's direct property team in Victoria Island Lagos and Maitama Abuja. Direct inspections, landlord listings, and hunter support." />
+  
+  <!-- HuntR Design System (Zero Gradients, Pure Solid Editorial Aesthetic) -->
+  <link rel="stylesheet" href="css/huntr-core.css" />
+  <link rel="stylesheet" href="css/huntr-nav.css" />
+  <link rel="stylesheet" href="css/huntr-ui.css" />
 </head>
 <body>
 
-  <!-- ===== Navbar ===== -->
-  <header class="navbar" id="navbar">
-    <div class="container nav-inner">
-      <a href="index.html" class="brand">
-        <svg class="brand-logo" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-          <circle cx="16" cy="16" r="7" fill="#d5f34a"/>
-          <ellipse cx="16" cy="16" rx="13" ry="4.5" stroke="#d5f34a" stroke-width="2" transform="rotate(-18 16 16)"/>
-        </svg>
-        <span>Jupiter</span>
-      </a>
-      <nav class="nav-pill" id="navPill" aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html" class="active">Contact</a>
+  <!-- Global Header -->
+  <header class="huntr-header">
+    <div class="container-wide nav-container">
+      
+      <!-- Brand & Search Unit: Exact text "HuntR" with search bar immediately after -->
+      <div class="brand-search-unit">
+        <a href="index.html" class="brand-text-logo" title="HuntR Real Estate">Hunt<span class="r-accent">R</span></a>
+        <form class="nav-search-bar" action="listings.html" method="GET">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" name="q" class="nav-search-input" placeholder="Search Lekki, Ikoyi, Maitama..." aria-label="Search properties" />
+        </form>
+      </div>
+
+      <!-- Nav Links -->
+      <nav class="nav-links-wrap" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="listings.html" class="nav-link">New Listings</a>
+        <a href="team.html" class="nav-link">Our Team</a>
+        <a href="get-paid.html" class="nav-link">Get Paid</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
       </nav>
-      <a href="contact.html" class="nav-cta">
-        <span class="btn-ico">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
-        </span>
-        Get Started
-      </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
+
+      <!-- Action Button & Mobile Toggle -->
+      <div class="nav-actions">
+        <a href="get-paid.html" class="btn btn-chartreuse nav-cta-btn">Become a Hunter</a>
+        <button class="mobile-toggle-btn" id="mobileMenuToggle" aria-label="Toggle Navigation">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-menu-drawer" id="mobileDrawer">
+      <form class="nav-search-bar mobile-search-bar" action="listings.html" method="GET">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" name="q" class="nav-search-input" placeholder="Search Lekki, Ikoyi, Maitama..." />
+      </form>
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="listings.html" class="nav-link">New Listings</a>
+      <a href="team.html" class="nav-link">Our Team</a>
+      <a href="get-paid.html" class="nav-link">Get Paid (Bounties)</a>
+      <a href="contact.html" class="nav-link active">Contact</a>
+      <a href="get-paid.html" class="btn btn-chartreuse" style="margin-top: 12px;">Become a Hunter & Earn Cash</a>
     </div>
   </header>
 
-  <!-- ===== Page hero ===== -->
-  <section class="page-hero">
+  <main class="section-padding">
     <div class="container">
-      <h1><span class="muted">Let's start a</span><br />conversation.</h1>
-      <p>Sales, support or just curious — we reply fast, usually within minutes.</p>
-    </div>
-  </section>
-
-  <!-- ===== Contact ===== -->
-  <section class="section" style="padding-top:40px;">
-    <div class="container contact-grid">
-
-      <!-- Info column -->
-      <div class="reveal">
-        <div class="info-card">
-          <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-          <div>
-            <h3>Live chat</h3>
-            <p>Available 24/7 in-app. Average response time: under 4 minutes.</p>
-          </div>
-        </div>
-        <div class="info-card">
-          <div class="icon-badge lime"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></div>
-          <div>
-            <h3>Email</h3>
-            <p>hello@jupiter.inc — sales@jupiter.inc — support@jupiter.inc</p>
-          </div>
-        </div>
-        <div class="info-card">
-          <div class="icon-badge amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <div>
-            <h3>Headquarters</h3>
-            <p>400 Orbit Plaza, San Francisco, CA 94107</p>
-          </div>
-        </div>
-        <div class="info-card">
-          <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-          <div>
-            <h3>Office hours</h3>
-            <p>Mon–Fri, 8am–6pm PT. Support team covers all time zones.</p>
-          </div>
-        </div>
+      
+      <!-- Page Header -->
+      <div style="text-align: center; max-width: 760px; margin-inline: auto; margin-bottom: 56px;">
+        <span class="eyebrow">DIRECT COMMUNICATIONS</span>
+        <h1 style="margin-bottom: 16px;">Connect with the HuntR Team</h1>
+        <p style="font-size: 1.15rem; color: var(--color-text-secondary); line-height: 1.6;">
+          Speak directly with our property advisors, book a free self-guided inspection, list your home with zero agency cuts, or get assistance with your hunter payouts.
+        </p>
       </div>
-<!-- Form -->
-      <form class="contact-form reveal" id="contactForm" style="transition-delay:.1s">
-        <div class="form-row">
-          <div class="field">
-            <label for="name">Full name</label>
-            <input type="text" id="name" placeholder="Jane Cooper" required />
-          </div>
-          <div class="field">
-            <label for="email">Work email</label>
-            <input type="email" id="email" placeholder="jane@company.com" required />
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="field">
-            <label for="company">Company</label>
-            <input type="text" id="company" placeholder="Company Inc." />
-          </div>
-          <div class="field">
-            <label for="topic">How can we help?</label>
-            <select id="topic" required>
-              <option value="">Select a topic</option>
-              <option>Sales &amp; pricing</option>
-              <option>Technical support</option>
-              <option>Partnership</option>
-              <option>Careers</option>
-              <option>Something else</option>
-            </select>
-          </div>
-        </div>
-        <div class="field">
-          <label for="message">Message</label>
-          <textarea id="message" placeholder="Tell us a little about your project or question..." required></textarea>
-        </div>
-        <button type="submit" class="btn btn-dark btn-plain" style="width:100%;justify-content:center;">
-          <span class="btn-ico">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-          </span>
-          Send Message
-        </button>
-        <div class="form-success" id="formSuccess">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          Message sent! We'll get back to you shortly.
-        </div>
-      </form>
-    </div>
-  </section>
 
-  <!-- ===== FAQ ===== -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">FAQ</span>
-        <h2 class="section-title">Quick answers</h2>
-      </div>
-      <div class="faq">
-        <div class="faq-item reveal">
-          <button class="faq-q">
-            How does the 14-day free trial work?
-            <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-          </button>
-          <div class="faq-a"><p>Sign up instantly — no credit card needed. You get full access to the Growth plan features for 14 days. When the trial ends, pick a plan or your data stays safe while you decide.</p></div>
-        </div>
-        <div class="faq-item reveal" style="transition-delay:.06s">
-          <button class="faq-q">
-            Can I migrate from another platform?
-            <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-          </button>
-          <div class="faq-a"><p>Yes — our team handles migrations for free on Growth and Enterprise plans. Most migrations complete within 48 hours with zero downtime.</p></div>
-        </div>
-        <div class="faq-item reveal" style="transition-delay:.12s">
-          <button class="faq-q">
-            Do you offer discounts for startups or nonprofits?
-            <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-          </button>
-          <div class="faq-a"><p>Absolutely. Early-stage startups get 50% off their first year, and registered nonprofits use Jupiter free. Reach out through the form above to apply.</p></div>
-        </div>
-        <div class="faq-item reveal" style="transition-delay:.18s">
-          <button class="faq-q">
-            Is my data secure and compliant?
-            <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-          </button>
-          <div class="faq-a"><p>Jupiter is SOC 2 Type II certified and GDPR compliant, with encryption at rest and in transit. EU customers can choose to host all data in our EU data centers.</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-<!-- ===== Footer ===== -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="index.html" class="brand" style="background:var(--dark);color:#fff;">
-            <svg class="brand-logo" viewBox="0 0 32 32" fill="none">
-              <circle cx="16" cy="16" r="7" fill="#d5f34a"/>
-              <ellipse cx="16" cy="16" rx="13" ry="4.5" stroke="#d5f34a" stroke-width="2" transform="rotate(-18 16 16)"/>
-            </svg>
-            <span>Jupiter</span>
-          </a>
-          <p>The all-in-one SaaS platform to launch, automate and scale your business.</p>
-          <div class="social-links">
-            <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
-            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V9h4v1.5A6 6 0 0 1 16 8z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-            <a href="#" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+      <!-- Split Layout: Contact Info & Form -->
+      <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; margin-bottom: 64px; align-items: flex-start;">
+        
+        <!-- Left: Hubs & Channels -->
+        <div>
+          <!-- Quick WhatsApp Card -->
+          <div style="background-color: var(--color-olive-light); border: 1px solid rgba(111, 116, 80, 0.3); border-radius: var(--radius-card); padding: 28px; margin-bottom: 28px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+              <span class="badge badge-chartreuse" style="font-size: 0.8rem;">FAST RESPONSE</span>
+              <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-olive-dark);">24/7 WHATSAPP LINE</span>
+            </div>
+            <h3 style="font-size: 1.35rem; margin-bottom: 8px;">Direct Inspection Dispatch</h3>
+            <p style="font-size: 0.9rem; color: var(--color-text-secondary); margin-bottom: 18px;">
+              Need an instant gate code or direct landlord introduction? Message our team directly on WhatsApp for real-time dispatch.
+            </p>
+            <a href="https://wa.me/2348035550192?text=Hello%20HuntR,%20I%20would%20like%20to%20speak%20with%20a%20property%20advisor%20regarding%20direct%20listings." target="_blank" class="btn btn-dark" style="width: 100%;">
+              Chat on WhatsApp (+234 803 555 0192)
+            </a>
+          </div>
+
+          <!-- Physical Hubs -->
+          <div style="background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius-card); padding: 32px; box-shadow: var(--shadow-sm);">
+            <h3 style="margin-bottom: 20px; font-size: 1.25rem;">Physical Verification Hubs</h3>
+
+            <!-- Hub 1: Lagos -->
+            <div style="margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--color-border);">
+              <div style="font-weight: 700; font-size: 1.05rem; margin-bottom: 4px;">Lagos Island & Lekki Hub</div>
+              <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 6px;">
+                14B Bishop Oluwole Street, Victoria Island, Lagos
+              </p>
+              <div style="font-size: 0.85rem; color: var(--color-text-secondary);">
+                Monday – Saturday: 8:00 AM – 6:00 PM
+              </div>
+            </div>
+
+            <!-- Hub 2: Abuja -->
+            <div style="margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--color-border);">
+              <div style="font-weight: 700; font-size: 1.05rem; margin-bottom: 4px;">Abuja FCT Operations Center</div>
+              <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 6px;">
+                8 Aguiyi Ironsi Street, Maitama District, Abuja
+              </p>
+              <div style="font-size: 0.85rem; color: var(--color-text-secondary);">
+                Monday – Saturday: 8:30 AM – 5:30 PM
+              </div>
+            </div>
+
+            <!-- Hub 3: Mainland -->
+            <div>
+              <div style="font-weight: 700; font-size: 1.05rem; margin-bottom: 4px;">Lagos Mainland Scout Hub</div>
+              <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 6px;">
+                Isaac John Street, Ikeja GRA, Lagos
+              </p>
+              <div style="font-size: 0.85rem; color: var(--color-text-secondary);">
+                Field Verification & Escrow Drop Desk
+              </div>
+            </div>
           </div>
         </div>
-        <div class="footer-col">
-          <h4>Company</h4>
-          <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Resources</h4>
-          <ul>
-            <li><a href="blog.html">Insights</a></li>
-            <li><a href="services.html">Pricing</a></li>
-            <li><a href="contact.html">Support</a></li>
-            <li><a href="about.html">Careers</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Stay in orbit</h4>
-          <form class="newsletter-form" id="newsletterForm">
-            <input type="email" placeholder="Your email" required aria-label="Email address" />
-            <button type="submit" class="btn-ico" aria-label="Subscribe" style="width:42px;height:42px;border-radius:50%;border:0;display:grid;place-items:center;">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+
+        <!-- Right: Inquiry Form -->
+        <div style="background-color: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius-card); padding: 40px; box-shadow: var(--shadow-sm);">
+          <span class="eyebrow">SEND US A MESSAGE</span>
+          <h2 style="font-size: 1.6rem; margin-bottom: 8px;">Direct Message Portal</h2>
+          <p style="font-size: 0.95rem; color: var(--color-text-secondary); margin-bottom: 28px;">
+            Fill out the form below. A HuntR property coordinator will contact you within 30 minutes.
+          </p>
+
+          <form id="huntrContactForm">
+            <div class="form-group">
+              <label for="contactType" class="form-label">I am contacting HuntR as a: *</label>
+              <select id="contactType" class="form-select" required>
+                <option value="Tenant">Prospective Tenant / Buyer (Seeking home)</option>
+                <option value="Landlord">Direct Landlord (Want to list my home for 0% fee)</option>
+                <option value="Hunter">Registered Hunter (Inquiry on bounty payout)</option>
+                <option value="Partnership">Corporate / Legal Partner</option>
+              </select>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div class="form-group">
+                <label for="contactName" class="form-label">Your Name *</label>
+                <input type="text" id="contactName" class="form-input" placeholder="e.g. Dapo Adeleke" required />
+              </div>
+
+              <div class="form-group">
+                <label for="contactPhone" class="form-label">Phone / WhatsApp *</label>
+                <input type="tel" id="contactPhone" class="form-input" placeholder="e.g. 0803 123 4567" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="contactEmail" class="form-label">Email Address *</label>
+              <input type="email" id="contactEmail" class="form-input" placeholder="e.g. dapo@example.com" required />
+            </div>
+
+            <div class="form-group">
+              <label for="contactSubject" class="form-label">Neighborhood of Interest or Subject</label>
+              <input type="text" id="contactSubject" class="form-input" placeholder="e.g. 4-Bedroom Duplex in Lekki Phase 1" />
+            </div>
+
+            <div class="form-group">
+              <label for="contactMessage" class="form-label">Your Message or Inquiry Details *</label>
+              <textarea id="contactMessage" class="form-textarea" rows="5" placeholder="Tell us about the property you are interested in, or describe the property you wish to list directly..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-chartreuse" style="width: 100%; padding-block: 14px; font-size: 1rem;">
+              Send Direct Message
             </button>
           </form>
-          <p class="newsletter-note" id="newsSuccess">Thanks — you're subscribed! 🚀</p>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="huntr-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="footer-brand-title">Hunt<span style="color: var(--color-chartreuse);">R</span></div>
+        <p style="color: #A2AAA4; font-size: 0.925rem; max-width: 320px; line-height: 1.6; margin-bottom: 20px;">
+          Nigeria's direct property network. Eliminating middleman agent fees and empowering everyday citizens to hunt and earn.
+        </p>
+        <div style="font-size: 0.85rem; color: #768078;">
+          📍 Victoria Island, Lagos & Maitama, Abuja
         </div>
       </div>
-      <div class="footer-bottom">
-        <span>© <span class="year">2026</span> Jupiter Inc. All rights reserved.</span>
-        <div class="footer-bottom-links">
-          <a href="#">Privacy</a>
-          <a href="#">Terms</a>
-          <a href="#">Security</a>
-        </div>
+
+      <div>
+        <div class="footer-col-title">Platform</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="listings.html">New Listings</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="get-paid.html">Get Paid (Bounty)</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
       </div>
+
+      <div>
+        <div class="footer-col-title">Prime Locations</div>
+        <ul class="footer-links">
+          <li><a href="listings.html?q=Lekki">Lekki Phase 1</a></li>
+          <li><a href="listings.html?q=Ikoyi">Ikoyi Waterfront</a></li>
+          <li><a href="listings.html?q=Victoria%20Island">Victoria Island</a></li>
+          <li><a href="listings.html?q=Maitama">Maitama, Abuja</a></li>
+          <li><a href="listings.html?q=Ikeja">Ikeja GRA</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Legal & Security</div>
+        <ul class="footer-links">
+          <li><a href="contact.html">Escrow Guarantee</a></li>
+          <li><a href="contact.html">Land Registry Verification</a></li>
+          <li><a href="contact.html">Anti-Fraud Protocol</a></li>
+          <li><a href="contact.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>&copy; 2026 HuntR Technologies Nigeria Ltd. All rights reserved. Zero Agent Fees.</div>
+      <div>Designed with pure solid editorial aesthetics • No gradients • Built for Nigeria</div>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/calculator.js"></script>
+  <script src="js/listings.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>

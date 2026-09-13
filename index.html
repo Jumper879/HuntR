@@ -3,838 +3,537 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Scale your ideas. Build with AI.</title>
-  <meta name="description" content="Jupiter is the all-in-one SaaS platform to launch, automate and scale your business." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=2.5" />
-
-  <style id="hero-critical-styles">
-    /* Global Navigation Bar - Unified Across All Pages */
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      padding: 20px 0;
-      transition: padding 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
-    }
-    .navbar.scrolled {
-      padding: 12px 0;
-      background: rgba(243, 242, 239, 0.92);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-    }
-    .nav-inner {
-      width: min(1200px, 94%);
-      margin-inline: auto;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 700;
-      font-size: 1.05rem;
-      background: #131312;
-      color: #ffffff;
-      padding: 10px 20px 10px 12px;
-      border-radius: 999px;
-      box-shadow: 0 14px 40px rgba(17, 17, 16, 0.1);
-      text-decoration: none;
-      flex-shrink: 0;
-    }
-    .brand-logo {
-      width: 26px;
-      height: 26px;
-      display: block;
-    }
-    .nav-pill {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      background: #ffffff;
-      border: 1px solid rgba(17, 17, 16, 0.09);
-      border-radius: 999px;
-      padding: 7px 10px;
-      box-shadow: 0 2px 10px rgba(17, 17, 16, 0.06);
-    }
-    .nav-pill a {
-      font-size: 0.92rem;
-      font-weight: 500;
-      color: #3d3d3a;
-      padding: 8px 16px;
-      border-radius: 999px;
-      transition: background 0.2s ease, color 0.2s ease;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-    .nav-pill a:hover {
-      background: #e9e8e4;
-      color: #111110;
-    }
-    .nav-pill a.active {
-      background: #131312;
-      color: #ffffff;
-    }
-    .nav-cta {
-      margin-left: auto;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: #ffffff;
-      border: 1px solid rgba(17, 17, 16, 0.09);
-      border-radius: 999px;
-      padding: 7px 22px 7px 7px;
-      font-weight: 600;
-      font-size: 0.92rem;
-      color: #111110;
-      box-shadow: 0 2px 10px rgba(17, 17, 16, 0.06);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-    .nav-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 40px rgba(17, 17, 16, 0.1);
-    }
-    .nav-cta .btn-ico {
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      background: #131312;
-      color: #ffffff;
-      display: grid;
-      place-items: center;
-      flex-shrink: 0;
-    }
-    .nav-cta svg {
-      width: 16px;
-      height: 16px;
-    }
-    .nav-toggle {
-      display: none;
-      margin-left: auto;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 5px;
-      background: #ffffff;
-      border: 1px solid rgba(17, 17, 16, 0.12);
-      border-radius: 999px;
-      width: 44px;
-      height: 44px;
-      padding: 0;
-      box-shadow: 0 2px 10px rgba(17, 17, 16, 0.08);
-      cursor: pointer;
-      z-index: 1001;
-    }
-    .nav-toggle span {
-      width: 20px;
-      height: 2px;
-      border-radius: 2px;
-      background: #111110;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-      display: block;
-    }
-    .nav-toggle.open span:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
-    }
-    .nav-toggle.open span:nth-child(2) {
-      opacity: 0;
-    }
-    .nav-toggle.open span:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
-    }
-
-    /* Hero Viewport */
-    .hero-viewport {
-      position: relative;
-      width: 100%;
-      min-height: 100vh;
-      min-height: 100dvh;
-      background-color: #f1f1ef;
-      background-image: url('img/hero-landscape.jpg');
-      background-repeat: no-repeat;
-      background-position: center bottom;
-      background-size: cover;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 130px 48px 36px;
-      overflow: hidden;
-      box-sizing: border-box;
-    }
-    .tv-ambient-pulse {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -46%);
-      width: 320px;
-      height: 240px;
-      background: radial-gradient(circle, rgba(255, 185, 80, 0.45) 0%, rgba(255, 140, 50, 0.2) 45%, transparent 75%);
-      filter: blur(35px);
-      mix-blend-mode: screen;
-      pointer-events: none;
-      animation: tvGlowPulse 5s ease-in-out infinite;
-    }
-    @keyframes tvGlowPulse {
-      0%, 100% { opacity: 0.85; transform: translate(-50%, -46%) scale(1); }
-      50% { opacity: 0.55; transform: translate(-50%, -46%) scale(0.95); }
-    }
-    .hero-stage-content {
-      position: relative;
-      z-index: 10;
-      max-width: 1200px;
-      width: 100%;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      flex-grow: 1;
-    }
-    .hero-center-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 40px;
-      padding-top: 20px;
-    }
-    .hero-left-box {
-      max-width: 580px;
-    }
-    .hero-main-heading {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      letter-spacing: -0.045em;
-      line-height: 1.04;
-      margin: 0 0 24px;
-    }
-    .muted-part {
-      display: block;
-      font-size: clamp(3.2rem, 5.8vw, 5.2rem);
-      font-weight: 600;
-      color: #9297a2;
-    }
-    .bold-part {
-      display: block;
-      font-size: clamp(3.2rem, 5.8vw, 5.2rem);
-      font-weight: 700;
-      color: #111111;
-      margin-top: 4px;
-    }
-    .hero-lead-text {
-      color: #4b5262;
-      font-size: clamp(1.02rem, 1.3vw, 1.15rem);
-      line-height: 1.55;
-      font-weight: 400;
-      margin: 0 0 34px;
-      max-width: 480px;
-    }
-    .hero-btn-row {
-      display: flex;
-      align-items: center;
-    }
-    .btn-start-build {
-      display: inline-flex;
-      align-items: center;
-      gap: 16px;
-      background: #141517;
-      color: #ffffff;
-      border-radius: 9999px;
-      padding: 7px 28px 7px 8px;
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22);
-      transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease;
-      text-decoration: none;
-    }
-    .btn-start-build:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 20px 42px rgba(0, 0, 0, 0.3);
-    }
-    .btn-badge {
-      width: 44px;
-      height: 44px;
-      background: #ffffff;
-      color: #141517;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-      transition: transform 0.2s ease;
-    }
-    .btn-start-build:hover .btn-badge {
-      transform: scale(1.05);
-    }
-    .btn-text {
-      font-size: 1.05rem;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-    }
-    .hero-right-box {
-      position: relative;
-      animation: cardFloatingMotion 7s ease-in-out infinite;
-    }
-    @keyframes cardFloatingMotion {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-    .ai-floating-card {
-      width: clamp(300px, 24vw, 360px);
-      background: #ffffff;
-      border-radius: 28px;
-      padding: 14px 14px 12px;
-      box-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.22), 0 0 1px rgba(0, 0, 0, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-      box-sizing: border-box;
-    }
-    .card-thumb-frame {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      border-radius: 20px;
-      overflow: hidden;
-      background: #090a0d;
-      border: 2px solid #bef24a;
-      box-shadow: 0 0 20px rgba(190, 242, 74, 0.2);
-    }
-    .card-thumb-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .card-footer-info {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 10px 8px;
-    }
-    .card-text-col {
-      display: flex;
-      flex-direction: column;
-    }
-    .card-title {
-      font-size: 1.08rem;
-      font-weight: 700;
-      color: #111111;
-      margin: 0;
-      letter-spacing: -0.02em;
-    }
-    .card-ver {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem;
-      color: #888d98;
-      margin-top: 3px;
-    }
-    .card-arrow-btn {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      color: #111111;
-      transition: transform 0.2s ease, background-color 0.2s ease;
-      text-decoration: none;
-    }
-    .card-arrow-btn:hover {
-      transform: translateX(3px);
-      background-color: rgba(0, 0, 0, 0.05);
-    }
-    .hero-footer-bar {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 32px;
-      padding-top: 60px;
-      padding-bottom: 8px;
-    }
-    .hero-stat-text {
-      color: #ffffff;
-      font-size: 0.95rem;
-      line-height: 1.48;
-      font-weight: 500;
-      opacity: 0.95;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
-      max-width: 380px;
-      margin: 0;
-    }
-    .hero-logos-row {
-      display: flex;
-      align-items: center;
-      gap: 36px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-    .brand-badge {
-      display: inline-flex;
-      align-items: center;
-      opacity: 0.92;
-      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6));
-      transition: opacity 0.2s ease, transform 0.2s ease;
-    }
-    .brand-badge:hover {
-      opacity: 1;
-      transform: translateY(-1px);
-    }
-
-    /* Mobile & Tablet Phone View Styles */
-    @media (max-width: 860px) {
-      .navbar {
-        padding: 14px 0 !important;
-      }
-      .nav-inner {
-        width: 92% !important;
-      }
-      .nav-cta {
-        display: none !important;
-      }
-      .nav-toggle {
-        display: flex !important;
-      }
-      .nav-pill {
-        position: fixed !important;
-        top: 76px !important;
-        left: 4% !important;
-        right: 4% !important;
-        flex-direction: column !important;
-        align-items: stretch !important;
-        gap: 6px !important;
-        border-radius: 20px !important;
-        padding: 16px !important;
-        background: #ffffff !important;
-        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.16) !important;
-        border: 1px solid rgba(0, 0, 0, 0.08) !important;
-        opacity: 0 !important;
-        transform: translateY(-10px) !important;
-        pointer-events: none !important;
-        transition: opacity 0.25s ease, transform 0.25s ease !important;
-        z-index: 9999 !important;
-        display: flex !important;
-      }
-      .nav-pill.open {
-        opacity: 1 !important;
-        transform: none !important;
-        pointer-events: auto !important;
-      }
-      .nav-pill a {
-        padding: 12px 18px !important;
-        border-radius: 12px !important;
-        font-size: 1.05rem !important;
-        font-weight: 600 !important;
-        color: #1c1c1a !important;
-        text-align: left !important;
-        display: block !important;
-        background: transparent !important;
-      }
-      .nav-pill a:hover {
-        background: #f3f2ef !important;
-      }
-      .nav-pill a.active {
-        background: #131312 !important;
-        color: #ffffff !important;
-      }
-
-      .hero-viewport {
-        padding: 100px 20px 30px !important;
-        min-height: auto !important;
-      }
-      .hero-center-row {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 32px !important;
-      }
-      .hero-left-box {
-        max-width: 100% !important;
-      }
-      .muted-part, .bold-part {
-        font-size: clamp(2.4rem, 8.5vw, 3.8rem) !important;
-      }
-      .hero-lead-text {
-        font-size: 1.02rem !important;
-        margin-bottom: 24px !important;
-      }
-      .br-desktop {
-        display: none !important;
-      }
-      .hero-right-box {
-        align-self: center !important;
-        width: 100% !important;
-        max-width: 360px !important;
-      }
-      .ai-floating-card {
-        width: 100% !important;
-      }
-      .hero-footer-bar {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 22px !important;
-        padding-top: 44px !important;
-      }
-      .hero-logos-row {
-        justify-content: flex-start !important;
-        gap: 20px 28px !important;
-      }
-    }
-  </style>
-
+  <title>HuntR — Find Direct Homes. Pay Zero Agent Cuts in Nigeria.</title>
+  <meta name="description" content="HuntR is Nigeria's direct real estate platform where homes for rent and sale are listed directly by landlords, bypassing middleman agent fees." />
+  
+  <!-- HuntR Design System (Zero Gradients, Pure Solid Editorial Aesthetic) -->
+  <link rel="stylesheet" href="css/huntr-core.css" />
+  <link rel="stylesheet" href="css/huntr-nav.css" />
+  <link rel="stylesheet" href="css/huntr-ui.css" />
 </head>
 <body>
-    <!-- ===== Navbar ===== -->
-  <header class="navbar" id="navbar">
-    <div class="container nav-inner">
-      <a href="index.html" class="brand">
-        <svg class="brand-logo" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-          <circle cx="16" cy="16" r="7" fill="#d5f34a"/>
-          <ellipse cx="16" cy="16" rx="13" ry="4.5" stroke="#d5f34a" stroke-width="2" transform="rotate(-18 16 16)"/>
-        </svg>
-        <span>Jupiter</span>
-      </a>
 
-      <nav class="nav-pill" id="navPill" aria-label="Main navigation">
-        <a href="index.html" class="active">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact</a>
+  <!-- Global Header -->
+  <header class="huntr-header">
+    <div class="container-wide nav-container">
+      
+      <!-- Brand & Search Unit: Exact text "HuntR" with search bar immediately after -->
+      <div class="brand-search-unit">
+        <a href="index.html" class="brand-text-logo" title="HuntR Real Estate">Hunt<span class="r-accent">R</span></a>
+        <form class="nav-search-bar" action="listings.html" method="GET">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" name="q" class="nav-search-input" placeholder="Search Lekki, Ikoyi, Maitama..." aria-label="Search properties" />
+        </form>
+      </div>
+
+      <!-- Nav Links -->
+      <nav class="nav-links-wrap" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="listings.html" class="nav-link">New Listings</a>
+        <a href="team.html" class="nav-link">Our Team</a>
+        <a href="get-paid.html" class="nav-link">Get Paid</a>
+        <a href="contact.html" class="nav-link">Contact</a>
       </nav>
 
-      <a href="contact.html" class="nav-cta">
-        <span class="btn-ico">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
-        </span>
-        Get Started
-      </a>
+      <!-- Action Button & Mobile Toggle -->
+      <div class="nav-actions">
+        <a href="get-paid.html" class="btn btn-chartreuse nav-cta-btn">Become a Hunter</a>
+        <button class="mobile-toggle-btn" id="mobileMenuToggle" aria-label="Toggle Navigation">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
 
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-menu-drawer" id="mobileDrawer">
+      <form class="nav-search-bar mobile-search-bar" action="listings.html" method="GET">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" name="q" class="nav-search-input" placeholder="Search Lekki, Ikoyi, Maitama..." />
+      </form>
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="listings.html" class="nav-link">New Listings</a>
+      <a href="team.html" class="nav-link">Our Team</a>
+      <a href="get-paid.html" class="nav-link">Get Paid (Bounties)</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="get-paid.html" class="btn btn-chartreuse" style="margin-top: 12px;">Become a Hunter & Earn Cash</a>
     </div>
   </header>
 
-  <!-- ===== Hero Section ===== -->
-  <section class="hero-viewport">
-    <!-- Ambient TV glow -->
-    <div class="tv-ambient-pulse" aria-hidden="true"></div>
+  <!-- Main Content -->
+  <main>
 
-    <div class="hero-stage-content">
-      <!-- Main Row -->
-      <div class="hero-center-row">
-        <!-- Left Column -->
-        <div class="hero-left-box">
-          <h1 class="hero-main-heading">
-            <span class="muted-part">Scale your ideas.</span>
-            <span class="bold-part">Build with AI.</span>
+    <!-- Hero Section (Profit & Norfolk Enclosed Architectural Card) -->
+    <section class="hero-wrapper container-wide">
+      <div class="hero-card">
+        <img src="img/real-lekki-pool.webp" alt="Real Modern Luxury Duplex in Lekki Lagos" class="hero-backdrop" />
+        <div class="hero-solid-overlay"></div>
+
+        <div class="hero-content">
+          <div class="eyebrow eyebrow-light">
+            DIRECT FROM OWNER • ZERO AGENT FEES • 100% VERIFIED ON-GROUND
+          </div>
+          <h1 class="hero-title">
+            Find Direct Homes.<br>Pay Zero Agent Cuts.
           </h1>
-          <p class="hero-lead-text">
-            Deploy custom neural agents, LLMs, and automation in<br class="br-desktop" /> one seamless flow.
+          <p class="hero-subtitle">
+            Bypass middleman agents, extortionate 10% agency commissions, and inspection fees. Become a hunter from the comfort of your couch, sourcing verified direct-to-landlord apartments, duplexes, and terraces across Nigeria.
           </p>
-          <div class="hero-btn-row">
-            <a href="contact.html" class="btn-start-build">
-              <span class="btn-badge">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="13 17 18 12 13 7"></polyline>
-                  <polyline points="6 17 11 12 6 7"></polyline>
-                </svg>
-              </span>
-              <span class="btn-text">Start Build</span>
+          <div class="hero-cta-group">
+            <a href="listings.html" class="btn btn-chartreuse">
+              Explore Direct Listings
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <a href="get-paid.html" class="btn btn-ghost-dark">
+              Get Paid to Spot Houses
             </a>
           </div>
         </div>
 
-        <!-- Right Floating Card -->
-        <div class="hero-right-box">
-          <aside class="ai-floating-card">
-            <div class="card-thumb-frame">
-              <img src="img/digital-brain.jpg" alt="Digital Brain 3D Neural Engine" class="card-thumb-img" />
+        <!-- Floating Quick Card (Norfolk Style) -->
+        <div class="hero-floating-badge">
+          <div class="badge-icon">₦</div>
+          <div>
+            <div class="badge-title">Direct Hunter Radar</div>
+            <div class="badge-desc">₦450M+ in agency markups saved by tenants this year across Lagos & Abuja.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proof & Trust Bar -->
+    <section class="trust-bar">
+      <div class="container">
+        <div class="trust-bar-label">
+          VERIFIED BY PHYSICAL SCOUTS & TRUSTED BY THOUSANDS OF NIGERIAN HOMEOWNERS
+        </div>
+        <div class="trust-logos-row">
+          <div class="trust-pill">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-olive)" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Land Registry Checked
+          </div>
+          <div class="trust-pill">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-dark)" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Zero Middleman Markups
+          </div>
+          <div class="trust-pill">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-olive)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Direct Landlord WhatsApp
+          </div>
+          <div class="trust-pill">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-dark)" stroke-width="2.5"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="6" y1="12" x2="18" y2="12"/></svg>
+            Escrow Title Protection
+          </div>
+          <div class="trust-pill">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-chartreuse)" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            Top PropTech Nigeria
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Value Matrix: The Agent Cut vs The HuntR Way -->
+    <section class="section-padding">
+      <div class="container">
+        <div style="text-align: center; max-width: 720px; margin-inline: auto; margin-bottom: 20px;">
+          <span class="eyebrow">THE DIRECT REVOLUTION</span>
+          <h2>Why Everyday Nigerians Are Ditching Traditional Agents</h2>
+          <p>The traditional Nigerian real estate system is rigged with bloated commissions, ghost listings, and extortionate gatekeeping. HuntR connects you straight to verified owners.</p>
+        </div>
+
+        <div class="comparison-grid">
+          <!-- Traditional Agent Card -->
+          <div class="comparison-card">
+            <div class="comparison-header">
+              <span class="badge badge-dark" style="background:#551111; margin-bottom:8px;">The Middleman Way</span>
+              <h3 class="comparison-title">Traditional Agent System</h3>
+              <div class="comparison-sub">Frustrating, overpriced, and fraught with risk.</div>
             </div>
-            <div class="card-footer-info">
-              <div class="card-text-col">
-                <h3 class="card-title">Digital Brain</h3>
-                <span class="card-ver">// Model v4.0.2</span>
+            <ul class="comparison-list">
+              <li class="comparison-item">
+                <span class="comparison-icon icon-bad">✕</span>
+                <div><strong>10% Agency Commission:</strong> Forces you to pay millions simply for an agent opening a door.</div>
+              </li>
+              <li class="comparison-item">
+                <span class="comparison-icon icon-bad">✕</span>
+                <div><strong>10% Legal / Agreement Fee:</strong> Outrageous generic template fees for standard tenancy forms.</div>
+              </li>
+              <li class="comparison-item">
+                <span class="comparison-icon icon-bad">✕</span>
+                <div><strong>₦10,000 - ₦25,000 "Inspection Fees":</strong> Agents demand upfront fuel/mobilization money for phantom houses.</div>
+              </li>
+              <li class="comparison-item">
+                <span class="comparison-icon icon-bad">✕</span>
+                <div><strong>Sub-Agent Chains:</strong> 3 or 4 agents in a row splitting your money, causing delays and misinformation.</div>
+              </li>
+              <li class="comparison-item">
+                <span class="comparison-icon icon-bad">✕</span>
+                <div><strong>Fake Listing Scams:</strong> Stolen property photos and fraudsters claiming to hold the landlord's key.</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- The HuntR Way Card (Featured) -->
+          <div class="comparison-card card-featured">
+            <div class="comparison-badge">
+              <span class="badge badge-chartreuse">The Smart Way</span>
+            </div>
+            <div class="comparison-header">
+              <span class="badge badge-olive" style="margin-bottom:8px;">HuntR Direct Model</span>
+              <h3 class="comparison-title">The HuntR Platform</h3>
+              <div class="comparison-sub">Zero markups, direct landlord contact, verified on-ground.</div>
+            </div>
+            <ul class="comparison-list">
+              <li class="comparison-item">
+                <span class="comparison-icon icon-good">✓</span>
+                <div><strong>0% Agency Commission:</strong> Keep 100% of your money. Zero middleman cuts on rent or purchase.</div>
+              </li>
+              <li class="comparison-item">
+                <span class="comparison-icon icon-good">✓</span>
+                <div><strong>Direct Landlord Connection:</strong> Speak directly to verified homeowners via phone or WhatsApp.</div>
+              </li>
+              <li class="comparison-item">
+                <span class="comparison-icon icon-good">✓</span>
+                <div><strong>100% Free Self-Guided Inspections:</strong> Never pay an agent to view a house. Ever.</div>
+              </li>
+              <li class="comparison-item">
+                <span class="comparison-icon icon-good">✓</span>
+                <div><strong>Community Hunter Verification:</strong> Neighborhood scouts physically verify every house, gate, and landlord title.</div>
+              </li>
+              <li class="comparison-item">
+                <span class="comparison-icon icon-good">✓</span>
+                <div><strong>Institutional Escrow Protection:</strong> Funds held securely until title deeds and keys are handed over.</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Agent Fee Savings Calculator -->
+    <section class="section-padding" style="background-color: var(--color-canvas-subtle);">
+      <div class="container">
+        <div class="calculator-box">
+          <div class="calc-grid">
+            <div>
+              <span class="eyebrow eyebrow-light">SAVINGS ESTIMATOR</span>
+              <h2 style="color: #FFFFFF; margin-bottom: 14px;">See Exactly How Much You Save on HuntR</h2>
+              <p style="color: #C3CAC5; font-size: 0.95rem;">
+                Move the slider to match your annual rent or home purchase price. See the direct cash you save by eliminating the Nigerian agent commission cartel.
+              </p>
+
+              <div class="slider-container">
+                <label for="rentPriceSlider" style="font-size: 0.85rem; color: #A2AAA4; display: block; margin-bottom: 6px;">
+                  Select Annual Rent or Property Value:
+                </label>
+                <div class="calc-slider-val" id="sliderRentDisplay">₦15,000,000</div>
+                <input type="range" id="rentPriceSlider" class="range-input" min="2000000" max="40000000" step="500000" value="15000000" aria-label="Rent Price Slider" />
+                <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: #78827A; margin-top: 8px;">
+                  <span>₦2,000,000</span>
+                  <span>₦20,000,000</span>
+                  <span>₦40,000,000</span>
+                </div>
               </div>
-              <a href="services.html" class="card-arrow-btn" aria-label="Explore Digital Brain">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
+            </div>
+
+            <div class="calc-result-card">
+              <div style="font-family: var(--font-primary); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; color: var(--color-olive-light); text-transform: uppercase; margin-bottom: 16px;">
+                Traditional Agent Break-down
+              </div>
+
+              <div class="calc-breakdown-row">
+                <span style="color: #C3CAC5;">10% Agent Commission</span>
+                <span style="color: #FF8F8F; font-weight: 600;" id="agencyFeeDisplay">₦1,500,000</span>
+              </div>
+
+              <div class="calc-breakdown-row">
+                <span style="color: #C3CAC5;">10% Agreement & Legal Fee</span>
+                <span style="color: #FF8F8F; font-weight: 600;" id="legalFeeDisplay">₦1,500,000</span>
+              </div>
+
+              <div class="calc-breakdown-row">
+                <span style="color: #C3CAC5;">HuntR Platform Fee</span>
+                <span style="color: var(--color-chartreuse); font-weight: 700;">₦0 (Free Direct)</span>
+              </div>
+
+              <div class="calc-breakdown-row total-savings">
+                <div>
+                  <span style="display: block; font-size: 0.8rem; color: #A2AAA4; text-transform: uppercase;">Total Money Kept in Your Pocket:</span>
+                  <div class="savings-highlight" id="totalSavingsDisplay">₦3,000,000</div>
+                </div>
+              </div>
+
+              <div style="margin-top: 24px;">
+                <a href="listings.html" class="btn btn-chartreuse" style="width: 100%;">
+                  Find Direct Homes Now
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Properties Grid -->
+    <section class="section-padding">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 36px; flex-wrap: wrap; gap: 16px;">
+          <div>
+            <span class="eyebrow">FRESH VERIFIED SCOUTS</span>
+            <h2>Direct Properties on HuntR</h2>
+            <p>Every listing has been physically verified by a community hunter with verified title ownership.</p>
+          </div>
+          <a href="listings.html" class="btn btn-dark">
+            View All Listings
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+
+        <div class="properties-grid" id="propertiesGrid">
+          <!-- Dynamic rendering via js/listings.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Get Paid / Hunter Bounty Callout -->
+    <section class="section-padding" style="background-color: var(--color-card); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+      <div class="container">
+        <div class="bounty-hero-grid">
+          <div>
+            <span class="eyebrow">EARN AS A HUNTER</span>
+            <h2 style="margin-bottom: 16px;">Spot a Vacant House Near You. Get Paid Up to ₦250,000.</h2>
+            <p style="margin-bottom: 24px; font-size: 1.05rem;">
+              You don’t have to be a licensed agent. If you see a "To Let" banner, a vacant duplex, or a new building in your estate, take 3 photos, input the caretaker/landlord number, and upload it to HuntR. Once verified and closed, the cash bounty is transferred directly to your Nigerian bank account.
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px;">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <span class="badge badge-chartreuse" style="font-size: 0.85rem;">Step 1</span>
+                <span>Spot a vacant home during your daily commute or walk</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <span class="badge badge-chartreuse" style="font-size: 0.85rem;">Step 2</span>
+                <span>Snap 3 exterior photos & note the phone number</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <span class="badge badge-chartreuse" style="font-size: 0.85rem;">Step 3</span>
+                <span>Upload to HuntR in 90 seconds and receive your instant cash bounty</span>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+              <a href="get-paid.html" class="btn btn-chartreuse">
+                Register as a Hunter & Upload
+              </a>
+              <a href="get-paid.html#bountyCalc" class="btn btn-outline">
+                Calculate Hunter Earnings
               </a>
             </div>
-          </aside>
-        </div>
-      </div>
-
-      <!-- Bottom Bar -->
-      <div class="hero-footer-bar">
-        <div class="hero-stat-text">
-          +2,400 active deployments and 8,200 brands<br />
-          trust our high-performance architecture.
-        </div>
-        <div class="hero-logos-row">
-          <!-- aetna -->
-          <span class="brand-badge" title="aetna">
-            <svg height="21" viewBox="0 0 85 24" fill="currentColor">
-              <text x="0" y="19" font-family="'Inter', sans-serif" font-weight="700" font-size="22" letter-spacing="-0.03em" fill="#ffffff">aetna</text>
-            </svg>
-          </span>
-          <!-- cigna healthcare -->
-          <span class="brand-badge" title="cigna healthcare">
-            <svg height="28" viewBox="0 0 115 32" fill="currentColor">
-              <path d="M12 2c-1.8 0-3.3 1.2-3.8 2.8C7.5 4.3 6.6 4 5.7 4 3.1 4 1 6.1 1 8.7c0 .5.1 1 .3 1.5C.5 10.9 0 11.9 0 13c0 2.2 1.8 4 4 4h5v4h6v-4h2c2.2 0 4-1.8 4-4 0-1.1-.5-2.1-1.3-2.8.2-.5.3-1 .3-1.5 0-2.6-2.1-4.7-4.7-4.7-.9 0-1.8.3-2.5.8C15.3 3.2 13.8 2 12 2z" fill="#ffffff" opacity="0.95"/>
-              <text x="24" y="16" font-family="'Inter', sans-serif" font-weight="800" font-size="16" letter-spacing="-0.02em" fill="#ffffff">cigna</text>
-              <text x="24" y="27" font-family="'Inter', sans-serif" font-weight="500" font-size="8.5" letter-spacing="0.04em" fill="#ffffff" opacity="0.85">healthcare</text>
-            </svg>
-          </span>
-          <!-- Anthem -->
-          <span class="brand-badge" title="Anthem">
-            <svg height="21" viewBox="0 0 110 24" fill="currentColor">
-              <text x="0" y="18" font-family="'Inter', sans-serif" font-weight="700" font-size="20" letter-spacing="-0.02em" fill="#ffffff">Anthem</text>
-              <rect x="88" y="4" width="14" height="14" rx="2" fill="#ffffff" opacity="0.25"/>
-              <rect x="93" y="6" width="4" height="10" fill="#ffffff"/>
-              <rect x="90" y="9" width="10" height="4" fill="#ffffff"/>
-            </svg>
-          </span>
-          <!-- CVS pharmacy -->
-          <span class="brand-badge" title="CVS pharmacy">
-            <svg height="21" viewBox="0 0 145 24" fill="currentColor">
-              <path d="M6 3.5C3.5 1.5 0 3.5 0 7c0 4.5 7 9 7 9s7-4.5 7-9c0-3.5-3.5-5.5-6-3.5L7 4.5 6 3.5z" fill="#ffffff" transform="translate(0, 3) scale(0.9)"/>
-              <text x="18" y="18" font-family="'Inter', sans-serif" font-weight="800" font-size="18" letter-spacing="-0.02em" fill="#ffffff">CVS</text>
-              <text x="62" y="18" font-family="Georgia, serif" font-style="italic" font-weight="400" font-size="16" fill="#ffffff" opacity="0.95">pharmacy</text>
-            </svg>
-          </span>
-          <!-- UnitedHealthcare -->
-          <span class="brand-badge" title="UnitedHealthcare">
-            <svg height="21" viewBox="0 0 165 24" fill="currentColor">
-              <rect x="0" y="4" width="3" height="14" rx="1.5" fill="#ffffff"/>
-              <rect x="5" y="2" width="3" height="18" rx="1.5" fill="#ffffff"/>
-              <rect x="10" y="6" width="3" height="10" rx="1.5" fill="#ffffff"/>
-              <text x="18" y="18" font-family="'Inter', sans-serif" font-weight="700" font-size="16" letter-spacing="-0.02em" fill="#ffffff">United</text>
-              <text x="73" y="18" font-family="'Inter', sans-serif" font-weight="400" font-size="16" letter-spacing="-0.02em" fill="#ffffff" opacity="0.95">Healthcare</text>
-            </svg>
-          </span>
-          <!-- aetna with heart -->
-          <span class="brand-badge" title="aetna">
-            <svg height="21" viewBox="0 0 95 24" fill="currentColor">
-              <path d="M5 2C2.8 0 0 1.8 0 4.5c0 3.5 5.5 7 5.5 7s5.5-3.5 5.5-7C11 1.8 8.2 0 6 2l-.5.6L5 2z" fill="#ffffff" transform="translate(0, 5) scale(0.9)"/>
-              <text x="16" y="19" font-family="'Inter', sans-serif" font-weight="700" font-size="22" letter-spacing="-0.03em" fill="#ffffff">aetna</text>
-            </svg>
-          </span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Features ===== -->
-  <section class="section">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Platform</span>
-        <h2 class="section-title">Everything you need to <span class="muted" style="color:var(--faint)">launch faster</span></h2>
-        <p class="section-sub">One platform for analytics, automation and collaboration — built for teams that move fast.</p>
-      </div>
-
-      <div class="grid grid-3">
-        <div class="card reveal">
-          <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="20" x2="6" y2="14"/><line x1="12" y1="20" x2="12" y2="8"/><line x1="18" y1="20" x2="18" y2="4"/></svg></div>
-          <h3>Realtime Analytics</h3>
-          <p>Track every metric that matters with live dashboards, custom reports and instant alerts.</p>
-          <a href="services.html" class="link-arrow">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-        </div>
-        <div class="card reveal" style="transition-delay:.08s">
-          <div class="icon-badge lime"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-          <h3>Workflow Automation</h3>
-          <p>Automate repetitive work with visual builders, triggers and AI-powered recommendations.</p>
-          <a href="services.html" class="link-arrow">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-        </div>
-        <div class="card reveal" style="transition-delay:.16s">
-          <div class="icon-badge amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <h3>Enterprise Security</h3>
-          <p>SSO, granular permissions and end-to-end encryption — compliant out of the box.</p>
-          <a href="services.html" class="link-arrow">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Dark stats band ===== -->
-  <section class="section" style="padding-top:0;">
-    <div class="container">
-      <div class="section-dark reveal" style="padding:70px 50px;">
-        <div class="section-head" style="margin-bottom:40px;">
-          <span class="eyebrow">By the numbers</span>
-          <h2 class="section-title">Built for planetary scale</h2>
-        </div>
-        <div class="stats-band">
-          <div class="stat"><div class="stat-num">10k+</div><div class="stat-label">Active customers</div></div>
-          <div class="stat"><div class="stat-num">99.9%</div><div class="stat-label">Uptime SLA</div></div>
-          <div class="stat"><div class="stat-num">4.9/5</div><div class="stat-label">Average rating</div></div>
-          <div class="stat"><div class="stat-num">120+</div><div class="stat-label">Countries served</div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== How it works ===== -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">How it works</span>
-        <h2 class="section-title">From idea to orbit in three steps</h2>
-      </div>
-      <div class="steps">
-        <div class="step reveal">
-          <div class="step-num">1</div>
-          <h3>Connect your stack</h3>
-          <p>Plug in your tools, data and team in minutes with 120+ native integrations.</p>
-        </div>
-        <div class="step reveal" style="transition-delay:.08s">
-          <div class="step-num">2</div>
-          <h3>Configure your flows</h3>
-          <p>Design automations and dashboards with our drag-and-drop builder — no code needed.</p>
-        </div>
-        <div class="step reveal" style="transition-delay:.16s">
-          <div class="step-num">3</div>
-          <h3>Launch & scale</h3>
-          <p>Go live with one click and let Jupiter handle performance, security and growth.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Testimonials ===== -->
-  <section class="section">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Testimonials</span>
-        <h2 class="section-title">Loved by teams worldwide</h2>
-      </div>
-      <div class="grid grid-3">
-        <div class="card testi-card reveal">
-          <div class="stars">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
           </div>
-          <p class="testi-text">"Jupiter replaced four tools in our stack overnight. Our team ships twice as fast and nothing falls through the cracks."</p>
-          <div class="testi-head">
-            <div class="avatar">SM</div>
-            <div><strong>Sarah Mitchell</strong><small>COO, Orbita</small></div>
-          </div>
-        </div>
-        <div class="card testi-card reveal" style="transition-delay:.08s">
-          <div class="stars">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-          </div>
-          <p class="testi-text">"The automation builder is unreal. We cut onboarding time by 60% in the first month after switching."</p>
-          <div class="testi-head">
-            <div class="avatar av-2">DK</div>
-            <div><strong>David Kim</strong><small>Head of Ops, Vertex</small></div>
-          </div>
-        </div>
-        <div class="card testi-card reveal" style="transition-delay:.16s">
-          <div class="stars">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-          </div>
-          <p class="testi-text">"Best decision we made this year. Support answers in minutes and the product keeps getting better."</p>
-          <div class="testi-head">
-            <div class="avatar av-3">AR</div>
-            <div><strong>Amara Reyes</strong><small>Founder, Nexon</small></div>
+
+          <div style="position: relative; border-radius: var(--radius-card); overflow: hidden; border: 1px solid var(--color-border); box-shadow: var(--shadow-lg);">
+            <img src="img/real-hunter-scout.jpg" alt="Real Nigerian hunter scouting property with smartphone" style="width: 100%; height: 440px; object-fit: cover; object-position: center top;" />
+            <div style="position: absolute; bottom: 18px; left: 18px; right: 18px; background: rgba(17, 20, 18, 0.9); backdrop-filter: blur(8px); padding: 18px 22px; border-radius: 12px; color: #fff; border: 1px solid rgba(255, 255, 255, 0.15);">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <div style="font-size: 0.8rem; color: var(--color-chartreuse); font-weight: 700; text-transform: uppercase;">Latest Bounty Payout</div>
+                  <div style="font-size: 1rem; font-weight: 700;">Kudirat S. — Surulere, Lagos</div>
+                </div>
+                <div style="font-family: var(--font-display); font-size: 1.3rem; font-weight: 800; color: #fff;">
+                  ₦180,000 Payout
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== CTA ===== -->
-  <section class="section" style="padding-top:0;">
-    <div class="container">
-      <div class="cta-banner reveal">
-        <h2>Ready for lift-off?</h2>
-        <p>Join thousands of teams building with Jupiter. Free 14-day trial, no credit card required.</p>
-        <div class="hero-actions">
-          <a href="contact.html" class="btn btn-light">
-            <span class="btn-ico">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
-            </span>
-            Start Free Trial
-          </a>
+    <!-- Testimonials / Voices of Nigerian Hunters & Tenants -->
+    <section class="section-padding">
+      <div class="container">
+        <div style="text-align: center; max-width: 680px; margin-inline: auto; margin-bottom: 48px;">
+          <span class="eyebrow">REAL NIGERIAN STORIES</span>
+          <h2>Tenants & Hunters Winning Together</h2>
+          <p>No more agent fights at estate gates. Real people connecting directly.</p>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ===== Footer ===== -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="index.html" class="brand" style="background:var(--dark);color:#fff;">
-            <svg class="brand-logo" viewBox="0 0 32 32" fill="none">
-              <circle cx="16" cy="16" r="7" fill="#d5f34a"/>
-              <ellipse cx="16" cy="16" rx="13" ry="4.5" stroke="#d5f34a" stroke-width="2" transform="rotate(-18 16 16)"/>
-            </svg>
-            <span>Jupiter</span>
-          </a>
-          <p>The all-in-one SaaS platform to launch, automate and scale your business.</p>
-          <div class="social-links">
-            <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
-            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V9h4v1.5A6 6 0 0 1 16 8z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-            <a href="#" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+          <!-- Story 1 -->
+          <div style="background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius-card); padding: 32px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+              <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--color-dark); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800;">
+                T
+              </div>
+              <div>
+                <div style="font-weight: 700;">Toluwanimi A.</div>
+                <div style="font-size: 0.8rem; color: var(--color-text-muted);">Tenant in Lekki Phase 1</div>
+              </div>
+            </div>
+            <p style="font-size: 0.95rem; line-height: 1.6; color: var(--color-text-secondary); margin-bottom: 16px;">
+              "I saved exactly ₦2.4 Million on my 4-bedroom duplex in Lekki. The agent was demanding 10% agency plus 10% legal plus ₦50k caution. On HuntR, I contacted Engr. Femi directly, met him at the house, and we signed the lease within 48 hours. Life saver!"
+            </p>
+            <span class="badge badge-olive">Saved ₦2,400,000</span>
+          </div>
+
+          <!-- Story 2 -->
+          <div style="background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius-card); padding: 32px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+              <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--color-olive); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800;">
+                C
+              </div>
+              <div>
+                <div style="font-weight: 700;">Chibuike O.</div>
+                <div style="font-size: 0.8rem; color: var(--color-text-muted);">Hunter Scout in Abuja</div>
+              </div>
+            </div>
+            <p style="font-size: 0.95rem; line-height: 1.6; color: var(--color-text-secondary); margin-bottom: 16px;">
+              "I work in tech and commute through Maitama and Wuse II every day. I started spotting empty houses and newly finished terraces, uploading them on the Get Paid page. Last month alone, HuntR paid me ₦420,000 into my GTBank account. It's the best side hustle in Nigeria."
+            </p>
+            <span class="badge badge-chartreuse">Earned ₦420,000 Bounty</span>
+          </div>
+
+          <!-- Story 3 -->
+          <div style="background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius-card); padding: 32px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+              <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--color-dark); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800;">
+                O
+              </div>
+              <div>
+                <div style="font-weight: 700;">Dr. Olumide E.</div>
+                <div style="font-size: 0.8rem; color: var(--color-text-muted);">Direct Landlord in Ikeja GRA</div>
+              </div>
+            </div>
+            <p style="font-size: 0.95rem; line-height: 1.6; color: var(--color-text-secondary); margin-bottom: 16px;">
+              "As a landlord, I was sick of shady agents hanging their own ugly banners on my gate, demanding 10% from tenants and scaring good prospective tenants away. With HuntR, verified corporate professionals reached out directly and my property was leased within 10 days."
+            </p>
+            <span class="badge badge-olive">Leased in 10 Days</span>
           </div>
         </div>
-        <div class="footer-col">
-          <h4>Company</h4>
-          <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-padding" style="background-color: var(--color-canvas-subtle);">
+      <div class="container">
+        <div style="text-align: center; max-width: 680px; margin-inline: auto; margin-bottom: 32px;">
+          <span class="eyebrow">COMMON QUESTIONS</span>
+          <h2>Everything You Need to Know</h2>
+          <p>Transparent answers about bypassing agents, legal escrow, and hunter cash payouts.</p>
         </div>
-        <div class="footer-col">
-          <h4>Resources</h4>
-          <ul>
-            <li><a href="blog.html">Insights</a></li>
-            <li><a href="services.html">Pricing</a></li>
-            <li><a href="contact.html">Support</a></li>
-            <li><a href="about.html">Careers</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Stay in orbit</h4>
-          <form class="newsletter-form" id="newsletterForm">
-            <input type="email" placeholder="Your email" required aria-label="Email address" />
-            <button type="submit" class="btn-ico" aria-label="Subscribe" style="width:42px;height:42px;border-radius:50%;border:0;display:grid;place-items:center;">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+
+        <div class="faq-wrap">
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Are there really 0% agency fees on HuntR?</span>
+              <span class="faq-toggle-icon">+</span>
             </button>
-          </form>
-          <p class="newsletter-note" id="newsSuccess">Thanks — you're subscribed! 🚀</p>
+            <div class="faq-answer">
+              Yes, 100%. HuntR was founded specifically to eliminate the 10% agency fee and 10% legal fee that Nigerian middleman agents charge. You communicate directly with the property owner or registered property manager with zero commissions added.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>How does HuntR ensure listings are not scams?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Every property submitted on HuntR is assigned to an on-ground Hunter Scout who physically visits the location, verifies the building exterior, meets the landlord or caretaker, and cross-checks the Governor's Consent / C of O deed documents before the listing goes live.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>How do I get paid as a Hunter?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Whenever you spot a vacant house or property under development, visit our "Get Paid" page, enter the property address, take 3-4 exterior photos, and provide the caretaker or landlord contact number. Once verified and closed, a direct cash bounty (between ₦50,000 and ₦250,000) is paid straight to your Nigerian bank account.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Do I have to pay an inspection fee to view a property?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Never. Nigerian agents routinely charge ₦10,000 to ₦25,000 upfront for "mobilization" or inspection. On HuntR, all self-guided and accompanied inspections are completely free.
+            </div>
+          </div>
         </div>
       </div>
-      <div class="footer-bottom">
-        <span>© <span class="year">2026</span> Jupiter Inc. All rights reserved.</span>
-        <div class="footer-bottom-links">
-          <a href="#">Privacy</a>
-          <a href="#">Terms</a>
-          <a href="#">Security</a>
+    </section>
+
+  </main>
+
+  <!-- Interactive Property Modal -->
+  <div id="propertyModal" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-content-card">
+      <button class="modal-close-btn" onclick="closePropertyModal()" aria-label="Close modal">✕</button>
+      <div id="modalDynamicContent">
+        <!-- Injected dynamically by js/listings.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Footer -->
+  <footer class="huntr-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="footer-brand-title">Hunt<span style="color: var(--color-chartreuse);">R</span></div>
+        <p style="color: #A2AAA4; font-size: 0.925rem; max-width: 320px; line-height: 1.6; margin-bottom: 20px;">
+          Nigeria's direct property network. Eliminating middleman agent fees and empowering everyday citizens to hunt and earn.
+        </p>
+        <div style="font-size: 0.85rem; color: #768078;">
+          📍 Victoria Island, Lagos & Maitama, Abuja
         </div>
       </div>
+
+      <div>
+        <div class="footer-col-title">Platform</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="listings.html">New Listings</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="get-paid.html">Get Paid (Bounty)</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Prime Locations</div>
+        <ul class="footer-links">
+          <li><a href="listings.html?q=Lekki">Lekki Phase 1</a></li>
+          <li><a href="listings.html?q=Ikoyi">Ikoyi Waterfront</a></li>
+          <li><a href="listings.html?q=Victoria%20Island">Victoria Island</a></li>
+          <li><a href="listings.html?q=Maitama">Maitama, Abuja</a></li>
+          <li><a href="listings.html?q=Ikeja">Ikeja GRA</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Legal & Security</div>
+        <ul class="footer-links">
+          <li><a href="contact.html">Escrow Guarantee</a></li>
+          <li><a href="contact.html">Land Registry Verification</a></li>
+          <li><a href="contact.html">Anti-Fraud Protocol</a></li>
+          <li><a href="contact.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>&copy; 2026 HuntR Technologies Nigeria Ltd. All rights reserved. Zero Agent Fees.</div>
+      <div>Designed with pure solid editorial aesthetics • No gradients • Built for Nigeria</div>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/calculator.js"></script>
+  <script src="js/listings.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>

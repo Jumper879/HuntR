@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Listings — HuntR | Direct Nigerian Real Estate</title>
+  <meta name="description" content="Browse verified direct-from-landlord properties for rent and sale across Lagos and Abuja with zero agent commissions." />
+  
+  <!-- HuntR Design System (Zero Gradients, Pure Solid Editorial Aesthetic) -->
+  <link rel="stylesheet" href="css/huntr-core.css" />
+  <link rel="stylesheet" href="css/huntr-nav.css" />
+  <link rel="stylesheet" href="css/huntr-ui.css" />
+</head>
+<body>
+
+  <!-- Global Header -->
+  <header class="huntr-header">
+    <div class="container-wide nav-container">
+      
+      <!-- Brand & Search Unit: Exact text "HuntR" with search bar immediately after -->
+      <div class="brand-search-unit">
+        <a href="index.html" class="brand-text-logo" title="HuntR Real Estate">Hunt<span class="r-accent">R</span></a>
+        <form class="nav-search-bar" action="listings.html" method="GET">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" name="q" class="nav-search-input" placeholder="Search Lekki, Ikoyi, Maitama..." aria-label="Search properties" />
+        </form>
+      </div>
+
+      <!-- Nav Links -->
+      <nav class="nav-links-wrap" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="listings.html" class="nav-link active">New Listings</a>
+        <a href="team.html" class="nav-link">Our Team</a>
+        <a href="get-paid.html" class="nav-link">Get Paid</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Action Button & Mobile Toggle -->
+      <div class="nav-actions">
+        <a href="get-paid.html" class="btn btn-chartreuse nav-cta-btn">Become a Hunter</a>
+        <button class="mobile-toggle-btn" id="mobileMenuToggle" aria-label="Toggle Navigation">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-menu-drawer" id="mobileDrawer">
+      <form class="nav-search-bar mobile-search-bar" action="listings.html" method="GET">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" name="q" class="nav-search-input" placeholder="Search Lekki, Ikoyi, Maitama..." />
+      </form>
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="listings.html" class="nav-link active">New Listings</a>
+      <a href="team.html" class="nav-link">Our Team</a>
+      <a href="get-paid.html" class="nav-link">Get Paid (Bounties)</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="get-paid.html" class="btn btn-chartreuse" style="margin-top: 12px;">Become a Hunter & Earn Cash</a>
+    </div>
+  </header>
+
+  <main class="section-padding">
+    <div class="container">
+      
+      <!-- Page Header -->
+      <div style="margin-bottom: 36px;">
+        <span class="eyebrow">VERIFIED DIRECT PROPERTIES</span>
+        <h1 style="margin-bottom: 12px;">New Direct Listings</h1>
+        <p style="font-size: 1.1rem; max-width: 720px;">
+          All properties below are posted directly by verified titleholders or spotted by local community hunters. No middleman agency fees. Free direct inspections.
+        </p>
+      </div>
+
+      <!-- Filters & Search Toolbar -->
+      <div style="background-color: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius-card); padding: 24px; margin-bottom: 36px; box-shadow: var(--shadow-sm);">
+        <div style="display: flex; gap: 16px; align-items: center; margin-bottom: 20px; flex-wrap: wrap;">
+          <!-- Live in-page search input -->
+          <div style="flex: 1; min-width: 240px; position: relative;">
+            <input type="text" id="pageSearchInput" class="form-input" style="border-radius: var(--radius-pill); padding-left: 42px;" placeholder="Type location, property type (e.g. Duplex, Lekki, Ikoyi, Terrace)..." />
+            <svg style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--color-text-muted);" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </div>
+
+          <!-- Type Filters (Rent / Sale / All) -->
+          <div style="display: flex; gap: 6px;">
+            <button class="filter-pill-btn active" data-type="All">All Types</button>
+            <button class="filter-pill-btn" data-type="Rent">For Rent</button>
+            <button class="filter-pill-btn" data-type="Sale">For Sale</button>
+          </div>
+        </div>
+
+        <!-- Location Filter Row -->
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+          <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--color-text-muted); margin-right: 4px;">Location:</span>
+          <button class="filter-pill-btn active" data-loc="All">All Neighborhoods</button>
+          <button class="filter-pill-btn" data-loc="Lekki">Lekki Phase 1</button>
+          <button class="filter-pill-btn" data-loc="Ikoyi">Ikoyi</button>
+          <button class="filter-pill-btn" data-loc="Victoria Island">Victoria Island</button>
+          <button class="filter-pill-btn" data-loc="Maitama">Maitama (Abuja)</button>
+          <button class="filter-pill-btn" data-loc="Ikeja">Ikeja GRA</button>
+          <button class="filter-pill-btn" data-loc="Wuse">Wuse II (Abuja)</button>
+        </div>
+      </div>
+
+      <!-- Result Count Info -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+        <div id="listingsCount" style="font-family: var(--font-primary); font-weight: 700; font-size: 0.95rem; color: var(--color-text-secondary);">
+          6 Direct Verified Properties Found
+        </div>
+        <div style="font-size: 0.85rem; color: var(--color-olive); font-weight: 600;">
+          ✓ Guaranteed 0% Agency Fee
+        </div>
+      </div>
+
+      <!-- Dynamic Properties Grid -->
+      <div class="properties-grid" id="propertiesGrid">
+        <!-- Rendered by js/listings.js -->
+      </div>
+
+      <!-- Bottom Callout -->
+      <div style="margin-top: 64px; background-color: var(--color-dark); color: #FFFFFF; border-radius: var(--radius-card); padding: 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px;">
+        <div>
+          <span class="eyebrow eyebrow-light">KNOW A VACANT HOUSE?</span>
+          <h2 style="color: #FFFFFF; font-size: 1.8rem; margin-bottom: 8px;">Earn a Cash Bounty as a Hunter</h2>
+          <p style="color: #C3CAC5; font-size: 0.95rem; max-width: 600px;">
+            Upload vacant properties in your area. Receive between ₦50,000 and ₦250,000 bounty straight to your bank account when verified!
+          </p>
+        </div>
+        <a href="get-paid.html" class="btn btn-chartreuse">
+          Start Uploading Houses
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Interactive Property Modal -->
+  <div id="propertyModal" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-content-card">
+      <button class="modal-close-btn" onclick="closePropertyModal()" aria-label="Close modal">✕</button>
+      <div id="modalDynamicContent">
+        <!-- Injected dynamically by js/listings.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Footer -->
+  <footer class="huntr-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="footer-brand-title">Hunt<span style="color: var(--color-chartreuse);">R</span></div>
+        <p style="color: #A2AAA4; font-size: 0.925rem; max-width: 320px; line-height: 1.6; margin-bottom: 20px;">
+          Nigeria's direct property network. Eliminating middleman agent fees and empowering everyday citizens to hunt and earn.
+        </p>
+        <div style="font-size: 0.85rem; color: #768078;">
+          📍 Victoria Island, Lagos & Maitama, Abuja
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Platform</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="listings.html">New Listings</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="get-paid.html">Get Paid (Bounty)</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Prime Locations</div>
+        <ul class="footer-links">
+          <li><a href="listings.html?q=Lekki">Lekki Phase 1</a></li>
+          <li><a href="listings.html?q=Ikoyi">Ikoyi Waterfront</a></li>
+          <li><a href="listings.html?q=Victoria%20Island">Victoria Island</a></li>
+          <li><a href="listings.html?q=Maitama">Maitama, Abuja</a></li>
+          <li><a href="listings.html?q=Ikeja">Ikeja GRA</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Legal & Security</div>
+        <ul class="footer-links">
+          <li><a href="contact.html">Escrow Guarantee</a></li>
+          <li><a href="contact.html">Land Registry Verification</a></li>
+          <li><a href="contact.html">Anti-Fraud Protocol</a></li>
+          <li><a href="contact.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>&copy; 2026 HuntR Technologies Nigeria Ltd. All rights reserved. Zero Agent Fees.</div>
+      <div>Designed with pure solid editorial aesthetics • No gradients • Built for Nigeria</div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/calculator.js"></script>
+  <script src="js/listings.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
