@@ -4,7 +4,7 @@
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   Hero Container (Profit & Norfolk Style Enclosed Card)
+   Hero Container (Exact Ridgeline & Norfolk Layout)
    -------------------------------------------------------------------------- */
 .hero-wrapper {
   padding-top: 24px;
@@ -13,100 +13,119 @@
 
 .hero-card {
   position: relative;
-  background-color: var(--color-dark);
+  background-color: #FAF8F5;
   border-radius: var(--radius-hero);
   overflow: hidden;
-  border: 1px solid var(--color-dark-border);
-  min-height: 580px;
+  border: 1px solid var(--color-border);
+  min-height: 660px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
-  padding: 80px 28px;
+  padding: 60px 28px;
+  box-shadow: var(--shadow-lg);
 }
 
-/* Authentic architectural backdrop */
+/* Authentic architectural gate backdrop with Lekki estate reveal */
 .hero-backdrop {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
-  opacity: 0.38;
-}
-
-/* Solid tint overlay (no gradient) */
-.hero-solid-overlay {
-  position: absolute;
-  inset: 0;
-  background-color: rgba(17, 20, 18, 0.65);
+  object-position: center bottom;
+  z-index: 1;
 }
 
 .hero-content {
   position: relative;
-  z-index: 2;
-  max-width: 860px;
-  margin-inline: auto;
-}
-
-.hero-title {
-  color: #FFFFFF;
-  font-size: clamp(2.4rem, 5.2vw, 4.2rem);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1.08;
-  margin-bottom: 20px;
-}
-
-.hero-subtitle {
-  color: #D3D9D4;
-  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
-  line-height: 1.6;
-  max-width: 680px;
-  margin-inline: auto;
-  margin-bottom: 34px;
-  font-weight: 400;
-}
-
-.hero-cta-group {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-
-/* Floating Card inside Hero (Norfolk QR style) */
-.hero-floating-badge {
-  position: absolute;
-  bottom: 24px;
-  right: 24px;
   z-index: 3;
+  max-width: 820px;
+  margin-inline: auto;
+  padding-top: 20px;
+}
+
+/* Ridgeline tracked uppercase eyebrow */
+.hero-eyebrow-ridgeline {
+  font-family: var(--font-primary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #6F7450;
+  margin-bottom: 14px;
+  display: block;
+}
+
+/* Ridgeline big bold display title centered in the sky */
+.hero-title-ridgeline {
+  color: #1E2428;
+  font-size: clamp(2.6rem, 5.2vw, 4.4rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  text-wrap: balance;
+}
+
+/* Ridgeline subtitle */
+.hero-subtitle-ridgeline {
+  color: #4A514B;
+  font-size: clamp(1rem, 1.5vw, 1.18rem);
+  line-height: 1.55;
+  max-width: 620px;
+  margin-inline: auto;
+  margin-bottom: 28px;
+  font-weight: 500;
+}
+
+/* Floating QR Card in bottom-right corner (exact Ridgeline replica) */
+.hero-qr-card {
+  position: absolute;
+  bottom: 28px;
+  right: 28px;
+  z-index: 4;
   background-color: #FFFFFF;
-  border-radius: var(--radius-card);
-  padding: 14px 18px;
+  border-radius: 12px;
+  padding: 16px 20px;
   text-align: left;
   display: flex;
   align-items: center;
-  gap: 14px;
-  box-shadow: var(--shadow-lg);
+  gap: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
   border: 1px solid var(--color-border);
   max-width: 320px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.hero-floating-badge .badge-icon {
-  width: 38px;
-  height: 38px;
-  border-radius: var(--radius-sm);
-  background-color: var(--color-chartreuse);
-  color: var(--color-dark);
+.hero-qr-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.16);
+}
+
+.qr-code-box {
+  width: 54px;
+  height: 54px;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  font-weight: 800;
+}
+
+.qr-card-title {
+  font-family: var(--font-primary);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #6F7450;
+  line-height: 1.25;
+  margin-bottom: 4px;
+}
+
+.qr-card-desc {
+  font-size: 0.75rem;
+  color: #555C56;
+  line-height: 1.35;
 }
 
 .hero-floating-badge .badge-title {
