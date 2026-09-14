@@ -4,26 +4,96 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Navbar Scroll Effect
-  const header = document.querySelector('.huntr-header');
-  if (header) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 20) {
-        header.classList.add('scrolled');
+  // 1. Sticky Header Scroll Effect
+  const stickyHeader = document.getElementById('huntrStickyHeader');
+  const normalHeader = document.querySelector('.huntr-header:not(.huntr-sticky-header)');
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    if (normalHeader) {
+      if (scrollY > 40) {
+        normalHeader.classList.add('scrolled');
       } else {
-        header.classList.remove('scrolled');
+        normalHeader.classList.remove('scrolled');
       }
+    }
+    if (stickyHeader) {
+      if (scrollY > 320) {
+        stickyHeader.classList.add('visible');
+      } else {
+        stickyHeader.classList.remove('visible');
+      }
+    }
+  }, { passive: true });
+
+  // 2. Luxury Circular Menu & Drawer Toggle (Consistent across all pages)
+  const menuButtons = document.querySelectorAll('.menu-circle-btn, #mobileMenuToggle');
+  const drawer = document.getElementById('huntrDrawer') || document.getElementById('mobileDrawer');
+  const backdrop = document.getElementById('drawerBackdrop');
+  const closeBtn = document.getElementById('drawerCloseBtn');
+
+  function openDrawer() {
+    if (drawer) {
+      drawer.classList.add('active');
+      drawer.setAttribute('aria-hidden', 'false');
+    }
+    if (backdrop) backdrop.classList.add('active');
+    menuButtons.forEach(btn => {
+      btn.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    });
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDrawer() {
+    if (drawer) {
+      drawer.classList.remove('active');
+      drawer.setAttribute('aria-hidden', 'true');
+    }
+    if (backdrop) backdrop.classList.remove('active');
+    menuButtons.forEach(btn => {
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+    document.body.style.overflow = '';
+  }
+
+  menuButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = drawer && drawer.classList.contains('active');
+      if (isOpen) {
+        closeDrawer();
+      } else {
+        openDrawer();
+      }
+    });
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeDrawer();
     });
   }
 
-  // 2. Mobile Menu Drawer Toggle
-  const mobileToggle = document.getElementById('mobileMenuToggle');
-  const mobileDrawer = document.getElementById('mobileDrawer');
-  if (mobileToggle && mobileDrawer) {
-    mobileToggle.addEventListener('click', () => {
-      mobileDrawer.classList.toggle('open');
-      const isOpen = mobileDrawer.classList.contains('open');
-      mobileToggle.setAttribute('aria-expanded', isOpen);
+  if (backdrop) {
+    backdrop.addEventListener('click', closeDrawer);
+  }
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && drawer && drawer.classList.contains('active')) {
+      closeDrawer();
+    }
+  });
+
+  // Close when clicking internal drawer links
+  if (drawer) {
+    drawer.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        closeDrawer();
+      });
     });
   }
 

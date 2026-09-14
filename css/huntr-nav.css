@@ -1,7 +1,9 @@
 /* ==========================================================================
-   HuntR Global Navigation
-   Logo: Exact text "HuntR" with an immediate inline search bar of same height/font
-   5 Pages: Home, New Listings, Our Team, Get Paid, Contact
+   HuntR Global Navigation — Oakline Luxury Architectural Style
+   Logo: Geometric emblem + "HUNTR" uppercase display
+   Nav Links: Properties, About Us, Get Paid, Contact
+   Menu Button: Floating circular white hamburger toggle
+   Drawer: Full luxury slide-out menu with search, contacts, and quick links
    ========================================================================== */
 
 .huntr-header {
@@ -10,227 +12,525 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  background-color: var(--color-canvas);
-  border-bottom: 1px solid var(--color-border);
-  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  background-color: rgba(17, 20, 18, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.huntr-header.scrolled {
-  background-color: rgba(246, 245, 242, 0.96);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: var(--shadow-sm);
+/* On the homepage, transparent floating header inside or over hero */
+.huntr-header.header-transparent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: 1px solid transparent;
+}
+
+/* Scrolled state for transparent header */
+.huntr-header.header-transparent.scrolled {
+  position: fixed;
+  background-color: rgba(17, 20, 18, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  animation: navSlideDown 0.3s ease forwards;
+}
+
+@keyframes navSlideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 
 .nav-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: var(--header-height);
-  gap: 20px;
+  height: 86px;
+  gap: 24px;
 }
 
-/* Brand Group: Exact "HuntR" text followed immediately by search bar */
-.brand-search-unit {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
-}
-
-.brand-text-logo {
-  font-family: var(--font-primary);
-  font-size: 1.15rem;
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  color: #FFFFFF;
-  background-color: var(--color-dark);
-  height: 42px;
+/* Brand Logo (Oakline geometric aesthetic) */
+.huntr-brand {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  padding: 0 18px;
-  border-radius: var(--radius-pill);
-  border: 1px solid var(--color-dark);
-  user-select: none;
+  gap: 12px;
   text-decoration: none;
+  color: #FFFFFF;
+  user-select: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-.brand-text-logo span.r-accent {
-  color: var(--color-chartreuse);
+.huntr-brand:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
 }
 
-/* Matching search bar immediately after HuntR logo */
-.nav-search-bar {
+.huntr-brand .brand-symbol {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   align-items: center;
-  gap: 8px;
-  height: 42px;
-  background-color: #FFFFFF;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-pill);
-  padding: 0 14px 0 12px;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  width: 250px;
-}
-
-.nav-search-bar:focus-within {
-  border-color: var(--color-dark);
-  box-shadow: 0 0 0 2px rgba(17, 20, 18, 0.08);
-}
-
-.nav-search-bar svg {
-  color: var(--color-text-muted);
+  justify-content: center;
+  color: var(--color-chartreuse);
   flex-shrink: 0;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-.nav-search-input {
-  border: none;
-  outline: none;
-  background: transparent;
+.huntr-brand:hover .brand-symbol {
+  background-color: rgba(227, 250, 83, 0.16);
+  border-color: var(--color-chartreuse);
+}
+
+.huntr-brand .brand-name {
   font-family: var(--font-primary);
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--color-text-primary);
-  width: 100%;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #FFFFFF;
+  text-transform: uppercase;
 }
 
-.nav-search-input::placeholder {
-  color: var(--color-text-muted);
-  font-weight: 400;
+.huntr-brand .brand-name .accent {
+  color: var(--color-chartreuse);
 }
 
 /* Desktop Navigation Links */
 .nav-links-wrap {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 36px;
 }
 
 .nav-link {
   font-family: var(--font-primary);
-  font-size: 0.925rem;
+  font-size: 0.95rem;
   font-weight: 500;
-  color: var(--color-text-secondary);
+  color: rgba(255, 255, 255, 0.82);
+  letter-spacing: 0.01em;
   position: relative;
-  padding-block: 6px;
-  transition: color 0.15s ease;
+  padding: 8px 2px;
+  transition: color 0.2s ease;
+  text-decoration: none;
 }
 
 .nav-link:hover {
-  color: var(--color-text-primary);
+  color: #FFFFFF;
 }
 
-.nav-link.active {
-  color: var(--color-text-primary);
-  font-weight: 600;
-}
-
-.nav-link.active::after {
+.nav-link::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
-  right: 0;
+  width: 0;
   height: 2px;
-  background-color: var(--color-dark);
+  background-color: var(--color-chartreuse);
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   border-radius: 2px;
 }
 
-/* Header Action Right */
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+/* Nav Actions Right & Circular Hamburger Button */
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
-  flex-shrink: 0;
+  gap: 16px;
 }
 
-.nav-cta-btn {
-  font-size: 0.875rem;
-  padding: 10px 20px;
-  height: 42px;
-}
-
-/* Mobile Hamburger */
-.mobile-toggle-btn {
-  display: none;
-  background: transparent;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-pill);
-  width: 42px;
-  height: 42px;
+.menu-circle-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  border: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: var(--color-text-primary);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+  flex-shrink: 0;
 }
 
-/* Mobile Drawer Overlay */
-.mobile-menu-drawer {
-  position: fixed;
-  top: var(--header-height);
-  left: 0;
-  width: 100%;
-  height: calc(100vh - var(--header-height));
-  background-color: var(--color-canvas);
-  border-top: 1px solid var(--color-border);
-  padding: 24px;
-  display: none;
+.menu-circle-btn:hover {
+  transform: scale(1.08);
+  background-color: #F7F6F2;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+.menu-circle-btn:active {
+  transform: scale(0.96);
+}
+
+.menu-icon {
+  display: flex;
   flex-direction: column;
-  gap: 20px;
-  z-index: 999;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  width: 18px;
+}
+
+.menu-icon span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background-color: #111412;
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* Hamburger animation when active */
+.menu-circle-btn.open .menu-icon span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.menu-circle-btn.open .menu-icon span:nth-child(2) {
+  opacity: 0;
+}
+.menu-circle-btn.open .menu-icon span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* --------------------------------------------------------------------------
+   Luxury Slide-Out Drawer Menu
+   -------------------------------------------------------------------------- */
+.huntr-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(10, 12, 11, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1999;
+}
+
+.huntr-drawer-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.huntr-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 440px;
+  max-width: 92vw;
+  height: 100vh;
+  background-color: #121513;
+  color: #FFFFFF;
+  z-index: 2000;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  box-shadow: -12px 0 48px rgba(0, 0, 0, 0.65);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
   overflow-y: auto;
 }
 
-.mobile-menu-drawer.open {
+.huntr-drawer.active {
+  transform: translateX(0);
+}
+
+/* Drawer Header */
+.drawer-header {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.mobile-menu-drawer .nav-link {
-  font-size: 1.25rem;
+.drawer-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-primary);
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #FFFFFF;
+}
+
+.drawer-brand .brand-symbol {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-chartreuse);
+}
+
+.drawer-close-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.drawer-close-btn:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: rotate(90deg);
+}
+
+/* Drawer Body */
+.drawer-body {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  flex: 1;
+}
+
+/* Drawer Search */
+.drawer-search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-pill);
+  padding: 6px 6px 6px 16px;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.drawer-search-bar:focus-within {
+  border-color: var(--color-chartreuse);
+  background-color: rgba(255, 255, 255, 0.09);
+}
+
+.drawer-search-bar svg {
+  color: rgba(255, 255, 255, 0.5);
+  flex-shrink: 0;
+}
+
+.drawer-search-bar input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-primary);
+  font-size: 0.9rem;
+  color: #FFFFFF;
+}
+
+.drawer-search-bar input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.drawer-search-bar button {
+  background-color: var(--color-chartreuse);
+  color: #111412;
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 8px 16px;
+  font-family: var(--font-primary);
+  font-size: 0.825rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.drawer-search-bar button:hover {
+  background-color: var(--color-chartreuse-hover);
+}
+
+/* Drawer Navigation Links */
+.drawer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.drawer-nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #FFFFFF;
+  background-color: transparent;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.drawer-nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.07);
+  transform: translateX(4px);
+}
+
+.drawer-nav-item.active {
+  background-color: rgba(227, 250, 83, 0.12);
+  border: 1px solid rgba(227, 250, 83, 0.25);
+}
+
+.drawer-nav-item .drawer-item-title {
+  font-family: var(--font-primary);
+  font-size: 1.1rem;
   font-weight: 600;
-  padding-block: 10px;
-  border-bottom: 1px solid var(--color-border);
+  color: #FFFFFF;
 }
 
-.mobile-search-bar {
-  display: none;
-  margin-top: 10px;
+.drawer-nav-item.active .drawer-item-title {
+  color: var(--color-chartreuse);
 }
 
-/* Responsive Media Queries */
-@media (max-width: 1080px) {
-  .nav-search-bar {
-    width: 180px;
-  }
-  .nav-links-wrap {
-    gap: 18px;
-  }
+.drawer-nav-item .drawer-item-sub {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 400;
+  margin-top: 2px;
 }
 
-@media (max-width: 900px) {
+.drawer-item-badge {
+  background-color: var(--color-chartreuse);
+  color: #111412;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.02em;
+}
+
+/* Drawer Footer */
+.drawer-footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.drawer-contact-card {
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.drawer-contact-card .contact-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 6px;
+}
+
+.drawer-contact-card .contact-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-chartreuse);
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.drawer-contact-card .contact-phone:hover {
+  opacity: 0.85;
+}
+
+.drawer-cta {
+  width: 100%;
+  justify-content: center;
+  font-size: 0.925rem;
+  font-weight: 700;
+  padding-block: 14px;
+}
+
+/* --------------------------------------------------------------------------
+   In-Hero Inner Nav & Sticky Header Styles
+   -------------------------------------------------------------------------- */
+.hero-inner-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 86px;
+  position: relative;
+  z-index: 10;
+}
+
+.huntr-sticky-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(17, 20, 18, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  transform: translateY(-100%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+}
+
+.huntr-sticky-header.visible {
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Rules
+   -------------------------------------------------------------------------- */
+@media (max-width: 860px) {
   .nav-links-wrap {
     display: none;
   }
-  .mobile-toggle-btn {
-    display: flex;
+}
+
+@media (max-width: 540px) {
+  .nav-container {
+    height: 74px;
   }
-  .nav-search-bar {
-    display: none;
+  .huntr-brand .brand-name {
+    font-size: 1.15rem;
   }
-  .mobile-search-bar {
-    display: flex;
+  .menu-circle-btn {
+    width: 40px;
+    height: 40px;
+  }
+  .huntr-drawer {
     width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .brand-text-logo {
-    padding: 0 14px;
-    font-size: 1.05rem;
-  }
-  .nav-cta-btn {
-    padding: 8px 14px;
-    font-size: 0.8rem;
+    max-width: 100vw;
   }
 }

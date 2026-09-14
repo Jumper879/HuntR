@@ -4,142 +4,288 @@
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   Hero Container (Exact Ridgeline & Norfolk Layout)
+   Hero Container (Profit & Norfolk Style Enclosed Card)
+/* --------------------------------------------------------------------------
+   Hero Container (Oakline Luxury Framed Architectural Card)
    -------------------------------------------------------------------------- */
 .hero-wrapper {
-  padding-top: 24px;
+  padding-top: 18px;
   padding-bottom: 24px;
 }
 
 .hero-card {
   position: relative;
-  background-color: #FAF8F5;
+  background-color: var(--color-dark);
   border-radius: var(--radius-hero);
   overflow: hidden;
-  border: 1px solid var(--color-border);
-  min-height: 660px;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  min-height: 640px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   text-align: center;
-  padding: 60px 28px;
-  box-shadow: var(--shadow-lg);
+  padding: 0 24px 32px 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
 }
 
-/* Authentic architectural gate backdrop with Lekki estate reveal */
+/* Authentic architectural backdrop */
 .hero-backdrop {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center bottom;
+  object-position: center 35%;
   z-index: 1;
+  transition: transform 8s ease;
 }
 
-.hero-content {
+.hero-card:hover .hero-backdrop {
+  transform: scale(1.02);
+}
+
+/* Natural lighting scrim (preserves architectural beauty & guarantees high text contrast) */
+.hero-solid-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 18, 15, 0.45) 0%,
+    rgba(14, 18, 15, 0.15) 30%,
+    rgba(14, 18, 15, 0.20) 70%,
+    rgba(14, 18, 15, 0.65) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Header nested inside hero frame */
+.hero-card .hero-inner-header {
   position: relative;
-  z-index: 3;
-  max-width: 820px;
-  margin-inline: auto;
+  z-index: 10;
+  width: 100%;
   padding-top: 20px;
 }
 
-/* Ridgeline tracked uppercase eyebrow */
-.hero-eyebrow-ridgeline {
+/* Centered Hero Typography (Oakline Style) */
+.hero-content {
+  position: relative;
+  z-index: 5;
+  max-width: 900px;
+  margin-inline: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 60px 16px 20px;
+}
+
+.hero-title {
+  color: #FFFFFF;
+  font-size: clamp(3rem, 6.4vw, 5.4rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  margin-bottom: 8px;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.45), 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: clamp(1.1rem, 1.8vw, 1.45rem);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+  margin-bottom: 0;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
+}
+
+/* Bottom elements bar */
+.hero-bottom-bar {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  margin-top: auto;
+}
+
+/* Floating Featured Property Card (Oakline bottom widget) */
+.hero-property-widget {
+  background: #FFFFFF;
+  border-radius: 24px;
+  padding: 12px 14px 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  text-align: left;
+  max-width: 440px;
+  width: 100%;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+}
+
+.hero-property-widget:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.35);
+}
+
+.hero-property-widget .widget-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.hero-property-widget .widget-title {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #121513;
+  line-height: 1.2;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hero-property-widget .widget-location {
+  font-size: 0.8rem;
+  color: #747C76;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.hero-property-widget .widget-price {
+  font-family: var(--font-primary);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #121513;
+  margin-bottom: 10px;
+}
+
+.hero-property-widget .btn-view-more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #BF9E73;
+  color: #FFFFFF;
   font-family: var(--font-primary);
   font-size: 0.78rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: #6F7450;
-  margin-bottom: 14px;
+  font-weight: 600;
+  padding: 7px 18px;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.hero-property-widget .btn-view-more:hover {
+  background-color: #AD8C60;
+  transform: scale(1.02);
+}
+
+.hero-property-widget .widget-media {
+  position: relative;
+  width: 140px;
+  height: 94px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.hero-property-widget .widget-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
-/* Ridgeline big bold display title centered in the sky */
-.hero-title-ridgeline {
-  color: #1E2428;
-  font-size: clamp(2.6rem, 5.2vw, 4.4rem);
-  font-weight: 800;
-  letter-spacing: -0.035em;
-  line-height: 1.1;
-  margin-bottom: 16px;
-  text-wrap: balance;
-}
-
-/* Ridgeline subtitle */
-.hero-subtitle-ridgeline {
-  color: #4A514B;
-  font-size: clamp(1rem, 1.5vw, 1.18rem);
-  line-height: 1.55;
-  max-width: 620px;
-  margin-inline: auto;
-  margin-bottom: 28px;
-  font-weight: 500;
-}
-
-/* Floating QR Card in bottom-right corner (exact Ridgeline replica) */
-.hero-qr-card {
+.hero-property-widget .widget-badge {
   position: absolute;
-  bottom: 28px;
-  right: 28px;
-  z-index: 4;
-  background-color: #FFFFFF;
-  border-radius: 12px;
-  padding: 16px 20px;
-  text-align: left;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-  border: 1px solid var(--color-border);
-  max-width: 320px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.hero-qr-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.16);
-}
-
-.qr-code-box {
-  width: 54px;
-  height: 54px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.qr-card-title {
-  font-family: var(--font-primary);
-  font-size: 0.88rem;
+  top: 8px;
+  right: 8px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  color: #121513;
+  font-size: 0.68rem;
   font-weight: 700;
-  color: #6F7450;
-  line-height: 1.25;
-  margin-bottom: 4px;
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
 }
 
-.qr-card-desc {
-  font-size: 0.75rem;
-  color: #555C56;
-  line-height: 1.35;
+.hero-property-widget .widget-badge .status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #24A148;
 }
 
-.hero-floating-badge .badge-title {
+/* Bottom right verified badge */
+.hero-corner-badge {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(18, 21, 19, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
   font-family: var(--font-primary);
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  color: var(--color-dark);
-  line-height: 1.2;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-.hero-floating-badge .badge-desc {
-  font-size: 0.75rem;
-  color: var(--color-text-muted);
-  line-height: 1.3;
+.hero-corner-badge:hover {
+  background-color: #121513;
+  border-color: var(--color-chartreuse);
+}
+
+.hero-corner-badge svg {
+  color: var(--color-chartreuse);
+}
+
+@media (max-width: 900px) {
+  .hero-card {
+    min-height: 560px;
+    padding-bottom: 24px;
+  }
+  .hero-bottom-bar {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .hero-corner-badge {
+    position: static;
+  }
+}
+
+@media (max-width: 540px) {
+  .hero-card {
+    border-radius: 20px;
+    padding: 0 14px 20px 14px;
+    min-height: 500px;
+  }
+  .hero-property-widget {
+    flex-direction: column;
+    padding: 14px;
+    gap: 12px;
+  }
+  .hero-property-widget .widget-media {
+    width: 100%;
+    height: 120px;
+  }
 }
 
 /* --------------------------------------------------------------------------

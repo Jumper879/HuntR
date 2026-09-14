@@ -13,92 +13,188 @@
 </head>
 <body>
 
-  <!-- Global Header -->
-  <header class="huntr-header">
+  <!-- Sticky Header on Scroll (Home Page) -->
+  <header class="huntr-header huntr-sticky-header" id="huntrStickyHeader">
     <div class="container-wide nav-container">
-      
-      <!-- Brand & Search Unit: Exact text "HuntR" with search bar immediately after -->
-      <div class="brand-search-unit">
-        <a href="index.html" class="brand-text-logo" title="HuntR Real Estate">Hunt<span class="r-accent">R</span></a>
-        <form class="nav-search-bar" action="listings.html" method="GET">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-          <input type="text" name="q" class="nav-search-input" placeholder="Search Lekki, Ikoyi, Maitama..." aria-label="Search properties" />
-        </form>
-      </div>
+      <a href="index.html" class="huntr-brand" title="HuntR Group — Luxury Real Estate">
+        <span class="brand-symbol">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+        </span>
+        <span class="brand-name">HUNTR</span>
+      </a>
 
-      <!-- Nav Links -->
       <nav class="nav-links-wrap" aria-label="Primary Navigation">
-        <a href="index.html" class="nav-link active">Home</a>
-        <a href="listings.html" class="nav-link">New Listings</a>
-        <a href="team.html" class="nav-link">Our Team</a>
+        <a href="listings.html" class="nav-link">Properties</a>
+        <a href="team.html" class="nav-link">About Us</a>
         <a href="get-paid.html" class="nav-link">Get Paid</a>
         <a href="contact.html" class="nav-link">Contact</a>
       </nav>
 
-      <!-- Action Button & Mobile Toggle -->
       <div class="nav-actions">
-        <a href="get-paid.html" class="btn btn-chartreuse nav-cta-btn">Become a Hunter</a>
-        <button class="mobile-toggle-btn" id="mobileMenuToggle" aria-label="Toggle Navigation">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        <button class="menu-circle-btn sticky-toggle-btn" aria-label="Open Navigation Menu" aria-expanded="false">
+          <span class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
         </button>
       </div>
-
-    </div>
-
-    <!-- Mobile Drawer -->
-    <div class="mobile-menu-drawer" id="mobileDrawer">
-      <form class="nav-search-bar mobile-search-bar" action="listings.html" method="GET">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        <input type="text" name="q" class="nav-search-input" placeholder="Search Lekki, Ikoyi, Maitama..." />
-      </form>
-      <a href="index.html" class="nav-link active">Home</a>
-      <a href="listings.html" class="nav-link">New Listings</a>
-      <a href="team.html" class="nav-link">Our Team</a>
-      <a href="get-paid.html" class="nav-link">Get Paid (Bounties)</a>
-      <a href="contact.html" class="nav-link">Contact</a>
-      <a href="get-paid.html" class="btn btn-chartreuse" style="margin-top: 12px;">Become a Hunter & Earn Cash</a>
     </div>
   </header>
+
+  <!-- Luxury Slide-Out Menu Drawer -->
+  <div class="huntr-drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="huntr-drawer" id="huntrDrawer" aria-label="Expanded Navigation" aria-hidden="true">
+    <div class="drawer-header">
+      <div class="drawer-brand">
+        <span class="brand-symbol">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+        </span>
+        <span class="brand-name">HUNTR GROUP</span>
+      </div>
+      <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close Menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+
+    <div class="drawer-body">
+      <!-- Quick Property Search -->
+      <form class="drawer-search-bar" action="listings.html" method="GET">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" name="q" placeholder="Search Ikoyi, Lekki, Maitama..." aria-label="Search properties" />
+        <button type="submit" aria-label="Search">Search</button>
+      </form>
+
+      <!-- Navigation Links -->
+      <nav class="drawer-nav">
+        <a href="index.html" class="drawer-nav-item active">
+          <div>
+            <div class="drawer-item-title">Home</div>
+            <div class="drawer-item-sub">Direct Luxury Homes & Estates</div>
+          </div>
+        </a>
+        <a href="listings.html" class="drawer-nav-item">
+          <div>
+            <div class="drawer-item-title">Properties</div>
+            <div class="drawer-item-sub">Browse Direct Verified Listings</div>
+          </div>
+        </a>
+        <a href="team.html" class="drawer-nav-item">
+          <div>
+            <div class="drawer-item-title">About Us</div>
+            <div class="drawer-item-sub">Our Mission & Field Scouts</div>
+          </div>
+        </a>
+        <a href="get-paid.html" class="drawer-nav-item">
+          <div>
+            <div class="drawer-item-title">Get Paid (Bounties)</div>
+            <div class="drawer-item-sub">Earn Cash Spotting Vacant Homes</div>
+          </div>
+          <span class="drawer-item-badge">Earn ₦250k</span>
+        </a>
+        <a href="contact.html" class="drawer-nav-item">
+          <div>
+            <div class="drawer-item-title">Contact & Inquiries</div>
+            <div class="drawer-item-sub">Lagos & Abuja Direct Hubs</div>
+          </div>
+        </a>
+      </nav>
+
+      <!-- Drawer Footer -->
+      <div class="drawer-footer">
+        <div class="drawer-contact-card">
+          <div class="contact-label">Direct Landlord WhatsApp</div>
+          <a href="https://wa.me/2348035550192" class="contact-phone" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            +234 803 555 0192 (Direct Chat)
+          </a>
+        </div>
+        <a href="get-paid.html" class="btn btn-chartreuse drawer-cta">
+          Become a Hunter & Earn Cash
+        </a>
+      </div>
+    </div>
+  </aside>
 
   <!-- Main Content -->
   <main>
 
-    <!-- Hero Section (Exact Ridgeline Layout & Open Gate into Lekki Estate) -->
+    <!-- Hero Section (Oakline Luxury Framed Architectural Card) -->
     <section class="hero-wrapper container-wide">
       <div class="hero-card">
-        <img src="img/lekki_gate_hero.png" alt="Estate gate opening into modern Lekki luxury estate" class="hero-backdrop" />
+        <img src="img/huntr-luxury-hero.jpg" alt="HuntR Luxury Architectural Residence" class="hero-backdrop" />
+        <div class="hero-solid-overlay"></div>
 
-        <div class="hero-content">
-          <span class="hero-eyebrow-ridgeline">
-            STRONGER. SMARTER. BUILT TO LAST.
-          </span>
-          <h1 class="hero-title-ridgeline">
-            The Right Home<br>Changes Everything
-          </h1>
-          <p class="hero-subtitle-ridgeline">
-            Custom direct-from-landlord solutions built for privacy, security,<br>and zero middleman agent cuts.
-          </p>
+        <!-- Inside Hero Top Nav (Oakline Framing) -->
+        <div class="hero-inner-nav">
+          <a href="index.html" class="huntr-brand" title="HuntR Group — Luxury Real Estate">
+            <span class="brand-symbol">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </span>
+            <span class="brand-name">HUNTR</span>
+          </a>
+
+          <nav class="nav-links-wrap" aria-label="Hero Navigation">
+            <a href="listings.html" class="nav-link">Properties</a>
+            <a href="team.html" class="nav-link">About Us</a>
+            <a href="get-paid.html" class="nav-link">Get Paid</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+          </nav>
+
+          <div class="nav-actions">
+            <button class="menu-circle-btn" id="menuToggleBtn" aria-label="Open Navigation Menu" aria-expanded="false">
+              <span class="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+            </button>
+          </div>
         </div>
 
-        <!-- Floating QR Card (Exact Ridgeline Match) -->
-        <a href="https://wa.me/2348035550192?text=Hello%20HuntR,%20I%20am%20interested%20in%20direct%20properties%20in%20Lekki." target="_blank" class="hero-qr-card">
-          <div class="qr-code-box">
-            <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#6F7450" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="2" width="8" height="8" rx="1.5"></rect>
-              <rect x="14" y="2" width="8" height="8" rx="1.5"></rect>
-              <rect x="2" y="14" width="8" height="8" rx="1.5"></rect>
-              <rect x="14" y="14" width="8" height="8" rx="1.5"></rect>
-              <circle cx="6" cy="6" r="1.5" fill="#6F7450"></circle>
-              <circle cx="18" cy="6" r="1.5" fill="#6F7450"></circle>
-              <circle cx="6" cy="18" r="1.5" fill="#6F7450"></circle>
-              <circle cx="18" cy="18" r="1.5" fill="#6F7450"></circle>
-            </svg>
+        <!-- Centered Hero Typography (Oakline Luxury Style) -->
+        <div class="hero-content">
+          <h1 class="hero-title">HuntR Group</h1>
+          <p class="hero-subtitle">Direct Luxury Real Estate</p>
+        </div>
+
+        <!-- Bottom Floating Elements (Oakline Style) -->
+        <div class="hero-bottom-bar">
+          <!-- Floating Property Card Widget -->
+          <div class="hero-property-widget">
+            <div class="widget-info">
+              <div class="widget-title">18 Bourdillon Enclave</div>
+              <div class="widget-location">Ikoyi, Lagos • 5 Bed Villa</div>
+              <div class="widget-price">₦450,000,000</div>
+              <a href="listings.html" class="btn-view-more">View More</a>
+            </div>
+            <div class="widget-media">
+              <img src="img/real-ikate-mansion.webp" alt="18 Bourdillon Enclave" class="widget-thumb" />
+              <span class="widget-badge">
+                <span class="status-dot"></span>
+                For Sale
+              </span>
+            </div>
           </div>
-          <div>
-            <div class="qr-card-title">We Made It Simple</div>
-            <div class="qr-card-desc">Scan the QR code with your phone to start a text conversation with our team.</div>
-          </div>
-        </a>
+
+          <!-- Corner Direct Verified Badge -->
+          <a href="listings.html" class="hero-corner-badge">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Direct Owner Verified
+          </a>
+        </div>
       </div>
     </section>
 
